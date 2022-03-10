@@ -1,4 +1,4 @@
-# [Título del trabajo]
+# [GetOut]
 
 Este trababajo está basado en la idea propuesta sobre el "Scape Room".
 
