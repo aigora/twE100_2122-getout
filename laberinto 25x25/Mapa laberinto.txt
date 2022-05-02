@@ -1,6 +1,6 @@
-##########################
+#########################
 #ooooooooo#oooooooo##ooo#
-####o#oo#ooo#####oo#oXo#
+####o#oo#ooo##o###oo#oXo#
 ##oooo#o#o###ooo##o##ooo#
 #oo###oo#ooooo#o##oo##o##
 #o####oo#######ooooooooo#
