@@ -46,5 +46,5 @@
 ##oooo##o#o#oo#o#ooooo###o#oo#oooooo#ooooo#o#o#oo#
 #o#oooooo#o#oo#oo###ooooo##oo####o#oo#o#o##oo##oo#
 #oo#ooo#oo#oooo#ooo#o#o#oo##oooo#o#o#oooooo####oo#
-#Xooo#oooooo#o#oo#oo###o#o#oo#o##oo##oo#oooooooo##
+#oooo#oooooo#o#oo#oo###o#o#oo#o##oo##oo#oooooooo##
 ##################################################
