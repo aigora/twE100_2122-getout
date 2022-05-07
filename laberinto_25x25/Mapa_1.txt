@@ -21,5 +21,5 @@
 ##ooo#o##oooo#oo#oo#o#oo#
 #o#oooo#o#o#oo#o##oo##oo#
 #oo#ooo#oo#ooooooo####oo#
-#Xooo#oooooo#o#oooooooo##
+#oooo#oooooo#o#oooooooo##
 #########################
