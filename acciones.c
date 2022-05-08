@@ -1,5 +1,9 @@
+#include <stdio.h>
+#include <conio.h>
+
 #include "acciones.h"
 #include "pantallas.h"
+#include "juego.h"
 
 void seleccionSeleccion() {
     int input, check = 1;
@@ -41,16 +45,19 @@ void seleccionDificultad() {
         input = getch();
         switch (input) {
             case '1': 
-                //llevaria al modo facil
-                printf("Comming soon!\n");
+                //lleva al modo facil
+                Facil();
+                check = 0;
                 break;
             case '2': 
-                //llevaria al modo medio
-                printf("Comming soon!\n");
+                //lleva al modo medio
+                Medio();
+                check = 0;
                 break;
             case '3': 
-                //llevaria al modo dificil
-                printf("Comming soon!\n");
+                //lleva al modo dificil
+                Dificil();
+                check = 0;
                 break;
             case '4':
                 //lleva a la pantalla de seleccion
@@ -64,4 +71,31 @@ void seleccionDificultad() {
                 break;
         }
     }
+}
+
+void resultadosLB() {
+    pantallaMeta();
+    //falta todo lo de las leaderboards aqui.
+    char input;
+    int check = 1;
+    while (check == 1) {
+        input = getch();
+        switch (input) {
+            case 's':
+                //aqui iria para guardar la puntuacion
+                printf("Comming soon!\n");
+                break;
+            case 'n':
+                system("cls");
+                check = 0;
+                break;
+
+            default:
+                printf("Pulse una de las opciones...\n");
+                break;
+        }
+    }
+
+    pantallaSeleccion();
+    seleccionSeleccion();
 }

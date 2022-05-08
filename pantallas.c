@@ -45,3 +45,11 @@ void pantallaFinal() {
     printf("###########################################\n\n");
     getch();
 }
+
+void pantallaMeta() {
+    printf("###########################################\n\n");
+    printf("     Enhorabuena!\n");
+    printf("     Has conseguido salir del laberinto\n");
+    printf("     Desea registrar su puntuacion?\n     Si (s)     No (n)\n\n");
+    printf("###########################################\n\n");
+}
