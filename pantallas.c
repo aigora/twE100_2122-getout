@@ -1,5 +1,6 @@
 #include "pantallas.h"
 #include <stdio.h>
+#include <conio.h>
 
 void pantallaInicio() {
     printf("		#######\n");
