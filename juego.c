@@ -270,18 +270,18 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
     int i, j, k;
     dosDatos jugador, area;
     jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
-    /* if (jugador.y<12){
-        area.y=12;
+    if (jugador.y<7){
+        area.y=7;
     }
-    if (jugador.x<5){
-        area.x=5;
+    if (jugador.x<7){
+        area.x=7;
     }
-    if (jugador.y>medidas[mapa_jugable].y-12){
-        area.y=medidas[mapa_jugable].y-12;
+    if (jugador.y>medidas[mapa_jugable].y-7){
+        area.y=medidas[mapa_jugable].y-7;
     }
-    if (jugador.x>medidas[mapa_jugable].x-5){
-        area.x=medidas[mapa_jugable].x-5;
-    } */
+    if (jugador.x>medidas[mapa_jugable].x-7){
+        area.x=medidas[mapa_jugable].x-7;
+    }
     printf("\n\n\n");
     for ( i = area.x-7; i < area.x+7; i++)
     {
