@@ -89,7 +89,7 @@ void juego(FILE *map)
             }
         }
     }
-    dosDatos salida;
+    dosDatos exit;
     //a arreglar: la n tiene que ser random para elegir el mapa
     int mapa_jugable;
     //Provisional
@@ -99,25 +99,25 @@ void juego(FILE *map)
     //Funcion para definir cordenadas de jugador
     system("cls");
     decidir_posicion(mapas, mapa_jugable);
-    salida=analizar_posicion(mapas, medidas, mapa_jugable);
-    system("cls");
+    exit=analizar_posicion_salida(mapas, medidas, mapa_jugable);
+    imprimir_area(mapas, medidas, mapa_jugable);
     do
     {
-        imprimir_area(mapas, medidas, mapa_jugable);
         mov(mapas, medidas, mapa_jugable);
         system("cls");
-    } while (mapas[mapa_jugable][salida.x][salida.y]=='M');
+        imprimir_area(mapas, medidas, mapa_jugable);
+    } while (mapas[mapa_jugable][exit.x][exit.y]=='M');
     system("cls");
 }
 
 void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
-    int i, j, k=0;
+    int k=0;
     dosDatos jugador;
     char up, down, left, right;
-    char tecla_mov;
+    char input;
     //Busca donde se encuentra el jugador
-    jugador=analizar_posicion(c, medidas, mapa_jugable);
+    jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
     //determina lo que rodea al jugador
     up=c[mapa_jugable][jugador.x-1][jugador.y];
     down=c[mapa_jugable][jugador.x+1][jugador.y];
@@ -128,8 +128,8 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
     do
     {
         fflush(stdin);
-        tecla_mov=getch();
-        switch (tecla_mov)
+        input=getch();
+        switch (input)
         {
         case('w'):
             if (up==' '||up=='M')
@@ -225,10 +225,10 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
     } while (k==0);
     c[mapa_jugable][jugador.x][jugador.y]='X';
 }
-dosDatos analizar_posicion(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
-    int i, j, k;
+    int i, j;
     for ( i = 0; i < medidas[mapa_jugable].x; i++)
     {
         for ( j = 0; j < medidas[mapa_jugable].y; j++)
@@ -269,7 +269,7 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int i, j, k;
     dosDatos jugador, area;
-    jugador=analizar_posicion(c, medidas, mapa_jugable);
+    jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
     if (jugador.y<12){
         area.y=12;
     }
@@ -292,4 +292,21 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         }
         printf("\n");
     }
+}
+dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+{
+    dosDatos posicion;
+    int i, j;
+    for ( i = 0; i < medidas[mapa_jugable].x; i++)
+    {
+        for ( j = 0; j < medidas[mapa_jugable].y; j++)
+        {
+            if (c[mapa_jugable][i][j]=='M')
+            {
+                posicion.x=i;
+                posicion.y=j;
+            }
+        }
+    }
+    return posicion;
 }
