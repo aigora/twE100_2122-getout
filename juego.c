@@ -4,14 +4,6 @@
 #include "acciones.h"
 #include "pantallas.h"
 
-/* typedef struct 
-{
-    //fila x columna
-    //la x es el numero de fila
-    //la y es el numero de columna
-    int x, y;
-} dosDatos; */
-
 void Facil() {
     //apertura del fichero:
     FILE *map;
@@ -110,13 +102,13 @@ void juego(FILE *map)
     do
     {
         imprimir_area(mapas, medidas, mapa_jugable);
-        moverse(mapas, medidas, mapa_jugable);
+        mov(mapas, medidas, mapa_jugable);
         system("cls");
     } while (mapas[mapa_jugable][salida.x][salida.y]=='X');
     system("cls");
 }
 
-void movimiento(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int i, j, k=0;
     dosDatos jugador;

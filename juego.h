@@ -18,7 +18,7 @@ typedef struct
 //funciones en relacion a movimiento
 dosDatos analizar_posicion(char c[][200][200], dosDatos medidas[], int mapa_jugable);
 void decidir_posicion(char c[][200][200], int mapa_jugable);
-void moverse(char c[][200][200], dosDatos medidas[], int mapa_jugable);
+void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable);
 
 //funcion de muestra de mapa
 void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable);
