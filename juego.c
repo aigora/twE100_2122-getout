@@ -104,7 +104,6 @@ void juego(FILE *map)
     do
     {
         mov(mapas, medidas, mapa_jugable);
-        system("cls");
         imprimir_area(mapas, medidas, mapa_jugable);
     } while (mapas[mapa_jugable][exit.x][exit.y]=='M');
     system("cls");
@@ -267,8 +266,9 @@ void decidir_posicion(char c[][200][200], int mapa_jugable)
 }
 void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
-    int i, j, k;
+    int i, j;
     dosDatos jugador, area;
+    system("cls");
     jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
     if (jugador.y<7){
         area.y=7;
