@@ -4,13 +4,13 @@
 #include "acciones.h"
 #include "pantallas.h"
 
-typedef struct 
+/* typedef struct 
 {
     //fila x columna
     //la x es el numero de fila
     //la y es el numero de columna
     int x, y;
-} dosDatos;
+} dosDatos; */
 
 void Facil() {
     //apertura del fichero:
