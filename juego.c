@@ -89,13 +89,10 @@ void juego(FILE *map) {
                 if (mapas[i][j][k] == 'o') {
                     mapas[i][j][k] = ' ';
                 }
-                if (mapas[i][j][k] == '#') {
-                    mapas[i][j][k] = 219;
-                }
                 //escaneo del punto de inicio
                 //no va a ser necesario cuando se ponga el 
                 //sistema para que el jugador ponga el punto de inicio
-                if (mapas[i][j][k] == 'X') {
+                if (mapas[i][j][k] == 'x') {
                     posicion[i].x = j;
                     posicion[i].y = k;
                 }
@@ -127,7 +124,7 @@ void juego(FILE *map) {
         //si el jugador esta en una esquina se renderiza bien:
         render.x = posicionactual.x;
         render.y = posicionactual.y;
-        if (posicionactual.y < 12) {
+        /* if (posicionactual.y < 12) {
             render.y = 12;
         }
         if (posicionactual.x < 5) {
@@ -139,7 +136,7 @@ void juego(FILE *map) {
         if (posicionactual.x > medidas[n].x - 5) {
             render.x = medidas[n].x - 5;
         }
-
+ */
         //imprime el mapa en pantalla
         for (i = render.x - 5; i < render.x + 5; i++) {
             for (j = render.y - 12; j < render.y + 12; j++) {
