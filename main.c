@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
+
 #include "pantallas.h"
 #include "acciones.h"
 #include "juego.h"
 
-int main() {
+int main() 
+{
     system("cls");
     pantallaInicio();
     getch(); //loophole no preguntes
@@ -13,4 +15,5 @@ int main() {
     system("cls");
     pantallaSeleccion();
     seleccionSeleccion();
+    return 0;
 }
