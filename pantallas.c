@@ -1,3 +1,5 @@
+#pragma once
+
 #include "pantallas.h"
 #include <stdio.h>
 #include <conio.h>
@@ -25,7 +27,6 @@ void pantallaSeleccion() {
     printf("     3  Salir\n\n");
     printf("###########################################\n\n");
     printf("Pulse el numero de la opcion...\n");
-    seleccionSeleccion();
 }
 
 void pantallaDificultad() {
@@ -36,7 +37,6 @@ void pantallaDificultad() {
     printf("     4  Atras\n\n");
     printf("###########################################\n\n");
     printf("Pulse el numero de la opcion...\n");
-    seleccionDificultad();
 }
 
 void pantallaFinal() {

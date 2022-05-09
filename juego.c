@@ -1,7 +1,8 @@
+#pragma once
+
 #include <stdio.h>
 #include <conio.h>
 #include "juego.h"
-#include "acciones.h"
 #include "pantallas.h"
 
 void Facil() {
@@ -19,8 +20,6 @@ void Facil() {
     juego(map);
 
     fclose(map);
-
-    resultadosLB();
 }
 
 void Medio() {
@@ -37,8 +36,6 @@ void Medio() {
     juego(map);
 
     fclose(map);
-
-    resultadosLB();
 }
 
 void Dificil() {
@@ -55,8 +52,6 @@ void Dificil() {
     juego(map);
 
     fclose(map);
-
-    resultadosLB();
 }
 
 void juego(FILE *map) 
@@ -105,7 +100,7 @@ void juego(FILE *map)
     {
         mov(mapas, medidas, mapa_jugable);
         imprimir_area(mapas, medidas, mapa_jugable);
-    } while (mapas[mapa_jugable][exit.x][exit.y]=='M');
+    } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
 
@@ -224,6 +219,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
     } while (k==0);
     c[mapa_jugable][jugador.x][jugador.y]='X';
 }
+
 dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
@@ -241,6 +237,7 @@ dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int m
     }
     return posicion;
 }
+
 void decidir_posicion(char c[][200][200], int mapa_jugable)
 {
     dosDatos jugador;
@@ -264,6 +261,7 @@ void decidir_posicion(char c[][200][200], int mapa_jugable)
         }
     } while (k==0);
 }
+
 void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int i, j;
@@ -309,6 +307,7 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\n");
     }
 }
+
 dosDatos analizar_posicion_salida(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;

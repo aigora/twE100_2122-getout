@@ -14,7 +14,6 @@ void seleccionSeleccion() {
             case '1':
                 //pantalla de jugar
                 system("cls");
-                check = 0;
                 pantallaDificultad();
                 break;
             case '2':
@@ -23,7 +22,6 @@ void seleccionSeleccion() {
                 break;
             case '3':
                 //sales de programa, no hay que poner nada
-                check = 0;
                 system("cls");
                 pantallaFinal();
                 system("cls");
@@ -47,22 +45,18 @@ void seleccionDificultad() {
             case '1': 
                 //lleva al modo facil
                 Facil();
-                check = 0;
                 break;
             case '2': 
                 //lleva al modo medio
                 Medio();
-                check = 0;
                 break;
             case '3': 
                 //lleva al modo dificil
                 Dificil();
-                check = 0;
                 break;
             case '4':
                 //lleva a la pantalla de seleccion
                 system("cls");
-                check = 0;
                 pantallaSeleccion();
                 break;
 
@@ -97,5 +91,4 @@ void resultadosLB() {
     }
 
     pantallaSeleccion();
-    seleccionSeleccion();
 }
