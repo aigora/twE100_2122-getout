@@ -100,6 +100,7 @@ void juego(FILE *map)
     system("cls");
     decidir_posicion(mapas, mapa_jugable);
     salida=analizar_posicion(mapas, medidas, mapa_jugable);
+    system("cls");
     do
     {
         imprimir_area(mapas, medidas, mapa_jugable);
@@ -226,7 +227,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 }
 dosDatos analizar_posicion(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
-    dosDatos posicion_jugador;
+    dosDatos posicion;
     int i, j, k;
     for ( i = 0; i < medidas[mapa_jugable].x; i++)
     {
@@ -234,12 +235,12 @@ dosDatos analizar_posicion(char c[][200][200], dosDatos medidas[], int mapa_juga
         {
             if (c[mapa_jugable][i][j]=='X')
             {
-                posicion_jugador.x=i;
-                posicion_jugador.y=j;
+                posicion.x=i;
+                posicion.y=j;
             }
         }
     }
-    return posicion_jugador;
+    return posicion;
 }
 void decidir_posicion(char c[][200][200], int mapa_jugable)
 {
@@ -284,7 +285,7 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
     printf("\n\n\n\n\n");
     for ( i = area.x-5; i < area.x+5; i++)
     {
-        printf("\t\t\t\t\t\t");
+        printf("\t\t\t\t");
         for ( j = area.y-12; j < area.y+12; j++)
         {
             printf("%c ", c[mapa_jugable][i][j]);
