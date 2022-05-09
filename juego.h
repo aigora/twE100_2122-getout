@@ -1,11 +1,3 @@
-typedef struct 
-{
-    //fila x columna
-    //la x es el numero de fila
-    //la y es el numero de columna
-    int x, y;
-} dosDatos;
-
 //opcion facil
 void Facil();
 
