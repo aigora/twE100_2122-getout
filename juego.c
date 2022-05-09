@@ -104,21 +104,21 @@ void juego(FILE *map)
     system("cls");
 }
 
-void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int k=0;
     dosDatos jugador;
     char up, down, left, right;
     char input;
     //Busca donde se encuentra el jugador
-    jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
+    jugador=analizar_posicion_jugador(mapas, medidas, mapa_jugable);
     //determina lo que rodea al jugador
-    up=c[mapa_jugable][jugador.x-1][jugador.y];
-    down=c[mapa_jugable][jugador.x+1][jugador.y];
-    right=c[mapa_jugable][jugador.x][jugador.y+1];
-    left=c[mapa_jugable][jugador.x][jugador.y-1];
+    up=mapas[mapa_jugable][jugador.x-1][jugador.y];
+    down=mapas[mapa_jugable][jugador.x+1][jugador.y];
+    right=mapas[mapa_jugable][jugador.x][jugador.y+1];
+    left=mapas[mapa_jugable][jugador.x][jugador.y-1];
     //elimina la posicion anterior del jugador
-    c[mapa_jugable][jugador.x][jugador.y]=' ';
+    mapas[mapa_jugable][jugador.x][jugador.y]=' ';
     do
     {
         fflush(stdin);
@@ -217,10 +217,10 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             break;
         }
     } while (k==0);
-    c[mapa_jugable][jugador.x][jugador.y]='X';
+    mapas[mapa_jugable][jugador.x][jugador.y]='x';
 }
 
-dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
     int i, j;
@@ -228,7 +228,7 @@ dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int m
     {
         for ( j = 0; j < medidas[mapa_jugable].y; j++)
         {
-            if (c[mapa_jugable][i][j]=='X')
+            if (mapas[mapa_jugable][i][j]=='x')
             {
                 posicion.x=i;
                 posicion.y=j;
@@ -238,7 +238,7 @@ dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int m
     return posicion;
 }
 
-void decidir_posicion(char c[][200][200], int mapa_jugable)
+void decidir_posicion(char mapas[][200][200], int mapa_jugable)
 {
     dosDatos jugador;
     int k=0;
@@ -247,9 +247,9 @@ void decidir_posicion(char c[][200][200], int mapa_jugable)
         printf("Escribe una posicion de la cual empezar\n");
         printf("Recuerda las dimensiones de los niveles\nFacil:25x25\nMedio:50x50\nDificil:100x100\n");
         scanf("%i %i", &jugador.x, &jugador.y);
-        if (c[mapa_jugable][jugador.x][jugador.y]==' '&&c[mapa_jugable][jugador.x][jugador.y]!='M')
+        if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
         {
-            c[mapa_jugable][jugador.x][jugador.y]='X';
+            mapas[mapa_jugable][jugador.x][jugador.y]='x';
             k=1;
         }
         else
@@ -262,12 +262,12 @@ void decidir_posicion(char c[][200][200], int mapa_jugable)
     } while (k==0);
 }
 
-void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int i, j;
     dosDatos jugador, area1, area2;
     system("cls");
-    jugador=analizar_posicion_jugador(c, medidas, mapa_jugable);
+    jugador=analizar_posicion_jugador(mapas, medidas, mapa_jugable);
     area1.x=jugador.x;
     area1.y=jugador.y;
     area2.x=jugador.x;
@@ -291,7 +291,7 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\t\t\t\t");
         for ( j = 0; j < medidas[mapa_jugable].y; j++)
         {
-            printf("%c ", c[mapa_jugable][i][j]);
+            printf("%c ", mapas[mapa_jugable][i][j]);
         }
         printf("\n");
     } */
@@ -302,13 +302,13 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\t\t\t\t");
         for ( j = (area1.y-7); j <= (area2.y+7); j++)
         {
-            printf("%c ", c[mapa_jugable][i][j]);
+            printf("%c ", mapas[mapa_jugable][i][j]);
         }
         printf("\n");
     }
 }
 
-dosDatos analizar_posicion_salida(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
     int i, j;
@@ -316,7 +316,7 @@ dosDatos analizar_posicion_salida(char c[][200][200], dosDatos medidas[], int ma
     {
         for ( j = 0; j < medidas[mapa_jugable].y; j++)
         {
-            if (c[mapa_jugable][i][j]=='M')
+            if (mapas[mapa_jugable][i][j]=='M')
             {
                 posicion.x=i;
                 posicion.y=j;

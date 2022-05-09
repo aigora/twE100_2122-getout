@@ -16,10 +16,10 @@ typedef struct
 }dosDatos;
 
 //funciones en relacion a movimiento
-dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable);
-dosDatos analizar_posicion_salida(char c[][200][200], dosDatos medidas[], int mapa_jugable);
-void decidir_posicion(char c[][200][200], int mapa_jugable);
-void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable);
+dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
+dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
+void decidir_posicion(char mapas[][200][200], int mapa_jugable);
+void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 
 //funcion de muestra de mapa
-void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable);
+void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
