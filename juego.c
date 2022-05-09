@@ -250,7 +250,7 @@ void decidir_posicion(char c[][200][200], int mapa_jugable)
         printf("Escribe una posicion de la cual empezar\n");
         printf("Recuerda las dimensiones de los niveles\nFacil:25x25\nMedio:50x50\nDificil:100x100\n");
         scanf("%i %i", &jugador.x, &jugador.y);
-        if (c[mapa_jugable][jugador.x][jugador.y]==' ')
+        if (c[mapa_jugable][jugador.x][jugador.y]==' '&&c[mapa_jugable][jugador.x][jugador.y]!='M')
         {
             c[mapa_jugable][jugador.x][jugador.y]='X';
             k=1;
