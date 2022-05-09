@@ -92,7 +92,7 @@ void juego(FILE *map) {
                 //escaneo del punto de inicio
                 //no va a ser necesario cuando se ponga el 
                 //sistema para que el jugador ponga el punto de inicio
-                if (mapas[i][j][k] == 'x') {
+                if (mapas[i][j][k] == 'X') {
                     posicion[i].x = j;
                     posicion[i].y = k;
                 }
