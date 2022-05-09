@@ -10,7 +10,7 @@
 #oooo#oo#oo##o#ooo#ooo##o##oo##o#o#ooo#o##o#o##oo#
 ###oo#ooo#oo#ooo#oo#ooo###ooooo#oo#o#o#ooooo#oo#o#
 #o#ooo#oo#o##o#o#ooo#o##o#o##o#o#oooooo##o##oo#oo#
-#oo#o#ooo#ooo#oo#o#o#ooXoo##oo#oo####o#oo#ooo#ooo#
+#oo#o#ooo#ooo#oo#o#o#ooooo##oo#oo####o#oo#ooo#ooo#
 #oooo##o#ooo#o#oooooo#oo#oo##o#o##ooooo#oo#o#oo###
 #o##oo#o#o#o#oo####o#oo#ooo#oo#oo####ooo#o#o##ooo#
 #oooo#ooo#oo#o##ooooo#oo#o#oooo###ooooo#oo#oo#oo##

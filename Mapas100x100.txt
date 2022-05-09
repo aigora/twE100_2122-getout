@@ -56,7 +56,7 @@
 #o#oooooooo#########o#ooo#o#oooo#oooo#o#o#o#oo#o#o#o#o#oo#####o###o#o#o#o#o#o#ooooooo#ooo##o##o###o#
 #o#o##o#ooooooooooo#o###o#o#ooooooooooo#o#o##o###o#o#o#o#oo#ooo#ooo#o#ooo#ooo#o#o###o#o#oo#oo#o#ooo#
 #o#oo#o#o#oo#o####o#o#ooo#o#oooo##o#ooo#o#o#oooooooo#o#ooooo#oo#ooooo#########o#o#ooo#o#o###o#o#o###
-#o##o#o#o####o#oo#o#o##o###o#ooXooooo#o#o#o######o#ooo#o#o#oo#o#o###ooooo#ooooooo#o###o#ooooo#o#ooo#
+#o##o#o#o####o#oo#o#o##o###o#oooooooo#o#o#o######o#ooo#o#o#oo#o#o###ooooo#ooooooo#o###o#ooooo#o#ooo#
 #o#oo#o#oooo#oooooooooooooooo####oo#o#o#o#oooooooooooo######o#ooo#o#o#o#o#o#o###o#ooo#o#oo#oo#o###o#
 #o#o##o####o##o##o#o#####o#oooooo#o#o###o#########o####o#ooooo#oo#ooo#o#ooo#ooo#o#ooooo#######o#ooo#
 #o#oo#o#oooo#oo#oo#oo#oooo######o#o#o#o#oooooooooooooo#o#o#oooo#o#o#o#o#######o#o#####ooooooooo#o###
