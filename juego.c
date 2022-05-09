@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <conio.h>
 #include "juego.h"
 #include "acciones.h"
 #include "pantallas.h"

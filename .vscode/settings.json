@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "acciones.h": "c"
+        "acciones.h": "c",
+        "pantallas.h": "c"
     }
 }
