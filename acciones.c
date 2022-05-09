@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
-
+#include <stdlib.h>
 #include "acciones.h"
 #include "pantallas.h"
 #include "juego.h"
