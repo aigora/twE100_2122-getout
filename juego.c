@@ -293,7 +293,7 @@ void imprimir_area(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\n");
     }
 }
-dosDatos analizar_posicion_jugador(char c[][200][200], dosDatos medidas[], int mapa_jugable)
+dosDatos analizar_posicion_salida(char c[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
     int i, j;
