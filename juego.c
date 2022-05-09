@@ -97,6 +97,7 @@ void juego(FILE *map)
     //Para que funcione con los demas mapas hay que borrar las X en todos los mapas
 
     //Funcion para definir cordenadas de jugador
+    system("cls");
     decidir_posicion(mapas, mapa_jugable);
     salida=analizar_posicion(mapas, medidas, mapa_jugable);
     do
@@ -104,7 +105,7 @@ void juego(FILE *map)
         imprimir_area(mapas, medidas, mapa_jugable);
         mov(mapas, medidas, mapa_jugable);
         system("cls");
-    } while (mapas[mapa_jugable][salida.x][salida.y]=='X');
+    } while (mapas[mapa_jugable][salida.x][salida.y]=='M');
     system("cls");
 }
 
