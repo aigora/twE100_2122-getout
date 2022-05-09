@@ -132,7 +132,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
         switch (tecla_mov)
         {
         case('w'):
-            if (up=' '||up=='M')
+            if (up==' '||up=='M')
             {
                 jugador.x=jugador.x-1;
                 k=1;
@@ -143,7 +143,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('W'):
-            if (up=' '||up=='M')
+            if (up==' '||up=='M')
             {
                 jugador.x=jugador.x-1;
                 k=1;
@@ -154,7 +154,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('s'):
-            if (down=' '||down=='M')
+            if (down==' '||down=='M')
             {
                 jugador.x=jugador.x+1;
                 k=1;
@@ -165,7 +165,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('S'):
-            if (down=' '||down=='M')
+            if (down==' '||down=='M')
             {
                 jugador.x=jugador.x+1;
                 k=1;
@@ -176,7 +176,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('d'):
-            if (right=' '||right=='M')
+            if (right==' '||right=='M')
             {
                 jugador.y=jugador.y+1;
                 k=1;
@@ -187,7 +187,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('D'):
-            if (right=' '||right=='M')
+            if (right==' '||right=='M')
             {
                 jugador.y=jugador.y+1;
                 k=1;
@@ -198,7 +198,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('a'):
-            if (left=' '||left=='M')
+            if (left==' '||left=='M')
             {
                 jugador.y=jugador.y-1;
                 k=1;
@@ -209,7 +209,7 @@ void mov(char c[][200][200], dosDatos medidas[], int mapa_jugable)
             }
             break;
         case ('A'):
-            if (left=' '||left=='M')
+            if (left==' '||left=='M')
             {
                 jugador.y=jugador.y-1;
                 k=1;
