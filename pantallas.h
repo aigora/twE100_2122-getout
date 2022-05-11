@@ -12,3 +12,6 @@ void pantallaMeta();
 
 //render pantalla final
 void pantallaFinal();
+
+//Pantalla de seleccion de posicion
+void PantallaSeleccionPosicion();

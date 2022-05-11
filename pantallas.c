@@ -55,3 +55,8 @@ void pantallaMeta() {
     printf("     Desea registrar su puntuacion?\n     Si (s)     No (n)\n\n");
     printf("###########################################\n\n");
 }
+
+void PantallaSeleccionPosicion(){
+    printf("Escribe una posicion de la cual empezar\n");
+    printf("Recuerda las dimensiones de los niveles\nFacil:25x25\nMedio:50x50\nDificil:100x100\n");
+}
