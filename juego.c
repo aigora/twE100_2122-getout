@@ -295,13 +295,31 @@ void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\n");
     } */
     //imprime un area entorno al jugador:
-    printf("\n\n\n");
+    /* printf("\n\n\n");
     for ( i = (area1.x-7); i <= (area2.x+7); i++)
     {
         printf("\t\t\t\t");
         for ( j = (area1.y-7); j <= (area2.y+7); j++)
         {
             printf("%c ", mapas[mapa_jugable][i][j]);
+        }
+        printf("\n");
+    } */
+    //imprime area entorno al jugador con el caracter 219
+    printf("\n\n\n");
+    for ( i = (area1.x-7); i <= (area2.x+7); i++)
+    {
+        printf("\t\t\t\t");
+        for ( j = (area1.y-7); j <= (area2.y+7); j++)
+        {
+            if (mapas[mapa_jugable][i][j]=='#')
+            {
+                printf("%c ", 219);
+            }
+            else
+            {
+                printf("%c ", mapas[mapa_jugable][i][j]);
+            }
         }
         printf("\n");
     }
