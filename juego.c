@@ -314,11 +314,11 @@ void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
         {
             if (mapas[mapa_jugable][i][j]=='#')
             {
-                printf("%c", 219);
+                printf("%c%c", 219, 219);
             }
             else
             {
-                printf("%c", mapas[mapa_jugable][i][j]);
+                printf("%c ", mapas[mapa_jugable][i][j]);
             }
         }
         printf("\n");
