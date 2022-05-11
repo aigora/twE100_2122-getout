@@ -88,7 +88,7 @@ void juego(FILE *map)
     //a arreglar: la n tiene que ser random para elegir el mapa
     int mapa_jugable;
     //Provisional
-    mapa_jugable=0;
+    mapa_jugable=1;
     //Para que funcione con los demas mapas hay que borrar las X en todos los mapas
 
     //Funcion para definir cordenadas de jugador
