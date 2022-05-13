@@ -7,6 +7,9 @@ void Medio();
 //opcion dificil
 void Dificil();
 
+//opcion personalizado
+void Personalizado();
+
 //el juego en si
 void juego(FILE *map);
 
@@ -23,3 +26,13 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 
 //funcion de muestra de mapa
 void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
+//impresion del mapa a editar
+void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion);
+//Edicion del laberinto
+void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
+dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
+char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion);
+//Guardado de laberinto
+char guardar();
+//Laberinto creado
+void editor();

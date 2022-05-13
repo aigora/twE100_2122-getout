@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdio.h>
 #include <conio.h>
+
 #include "juego.h"
 #include "pantallas.h"
 
@@ -41,6 +42,22 @@ void Medio() {
 void Dificil() {
     FILE *map;
     map = fopen("Mapas100x100.txt", "r");
+    //nos dice el estado del mapa:
+    if (map == NULL) {
+        printf("No se ha encontrado el mapa.\n");
+        return 1;
+    } else {
+        printf("Abierto correctamente.\n");
+    }
+
+    juego(map);
+
+    fclose(map);
+}
+
+void Personalizado() {
+    FILE *map;
+    map = fopen("Niveles_editor.txt", "r");
     //nos dice el estado del mapa:
     if (map == NULL) {
         printf("No se ha encontrado el mapa.\n");

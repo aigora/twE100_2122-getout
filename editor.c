@@ -1,7 +1,8 @@
 #pragma once
 #include <stdio.h>
 #include <conio.h>
-#include "editor.h"
+
+#include "juego.h"
 
 void editor()
 {
@@ -33,7 +34,7 @@ void editor()
     {
         for ( j = 0; j < medidas.y; j++)
         {
-            mapa[i][j]='_';
+            mapa[i][j]=158;
         }      
     }
     for ( i = 0; i < medidas.x; i++)
@@ -91,13 +92,13 @@ void editor()
     {
         for ( j = 0; j < medidas.y; j++)
         {
-            if (mapa[i][j]=='_')
+            if (mapa[i][j]== 158)
             {
                 mapa[i][j]='o';
             }
         }
     }
-    map=fopen("Niveles_guardados.txt", "a");
+    map=fopen("Niveles_editor.txt", "a");
     fprintf(map, "%i %i\n", medidas.x, medidas.y);
     for ( i = 0; i < medidas.x; i++)
     {
@@ -158,7 +159,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
     }
     if (caso=='o'||caso=='w'||caso=='a'||caso=='s'||caso=='d')
     {
-        mapa[posicion.x][posicion.y]='_';
+        mapa[posicion.x][posicion.y]= 158;
     }
     if (caso=='m')
     {
@@ -167,7 +168,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
         {
             printf("\nYa existe una salida\n");
             system("pause");
-            mapa[posicion.x][posicion.y]='_';
+            mapa[posicion.x][posicion.y]= 158;
         }
         if (permiso==0)
         {

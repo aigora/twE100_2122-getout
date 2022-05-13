@@ -11,9 +11,6 @@ int main()
     pantallaInicio();
     getch(); //loophole no preguntes
 
-    system("color f0"); //probando
-
-
     int input;
     char character;
     //infinite_loop:
@@ -38,6 +35,7 @@ int main()
             case '3':
                 //lleva hasta el editor de niveles
                 system("cls");
+                editor();
                 goto seleccionSeleccion;
                 break;
 
@@ -78,7 +76,7 @@ int main()
 
             case '4':
                 //lleva al modo personalizado
-                goto seleccionDificultad;
+                Personalizado();
                 break;
 
             case '5':
