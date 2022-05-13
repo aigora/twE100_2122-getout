@@ -33,6 +33,12 @@ int main()
                 break;
 
             case '3':
+                //lleva hasta el editor de niveles
+                system("cls");
+                goto seleccionSeleccion;
+                break;
+
+            case '4':
                 //Sales del programa
                 system("cls");
                 pantallaFinal();
@@ -56,15 +62,23 @@ int main()
                 //lleva al modo facil
                 Facil();
                 break;
+
             case '2': 
                 //lleva al modo medio
                 Medio();
                 break;
+            
             case '3': 
                 //lleva al modo dificil
                 Dificil();
                 break;
+
             case '4':
+                //lleva al modo personalizado
+                goto seleccionDificultad;
+                break;
+
+            case '5':
                 //lleva a la pantalla de seleccion
                 system("cls");
                 goto seleccionSeleccion;

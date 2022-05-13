@@ -24,7 +24,8 @@ void pantallaSeleccion() {
     printf("###########################################\n\n");
     printf("     1  Jugar\n\n");
     printf("     2  Historial\n\n");
-    printf("     3  Salir\n\n");
+    printf("     3  Editor de niveles\n\n");
+    printf("     4  Salir\n\n\n\n");
     printf("###########################################\n\n");
     printf("Pulse el numero de la opcion...\n");
 }
@@ -34,7 +35,8 @@ void pantallaDificultad() {
     printf("     1  Facil\n\n");
     printf("     2  Medio\n\n");
     printf("     3  Dificil\n\n");
-    printf("     4  Atras\n\n");
+    printf("     4  Personalizados\n\n");
+    printf("     5  Atras\n\n");
     printf("###########################################\n\n");
     printf("Pulse el numero de la opcion...\n");
 }
