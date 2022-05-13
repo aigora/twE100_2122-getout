@@ -99,7 +99,17 @@ int main()
                 //aqui iria para guardar la puntuacion
                 goto meta;
                 break;
+
+            case 'S':
+                //igual que la minuscula
+                goto meta;
+                break;
+
             case 'n':
+                goto seleccionSeleccion;
+                break;
+
+            case 'N':
                 goto seleccionSeleccion;
                 break;
 
