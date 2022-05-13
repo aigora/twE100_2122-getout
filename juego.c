@@ -61,7 +61,7 @@ void juego(FILE *map)
 
     //utilizaremos la i para el numero de laberinto
     //la j para la fila del laberinto y la k para la columna del laberinto
-    int i, j, k, n_laberintos=0;
+    int i, j, k, n_laberintos=0, mapa_jugable;
     dosDatos medidas[30];
     
     for (i = 0; i < 30; i++) 
@@ -85,9 +85,6 @@ void juego(FILE *map)
         }
     }
     dosDatos exit;
-    //a arreglar: la n tiene que ser random para elegir el mapa
-    int mapa_jugable;
-    //Para que funcione con los demas mapas hay que borrar las X en todos los mapas
     for ( i = 0; i < 30; i++)
     {
         if ((medidas[i].x>0)&&(medidas[i].y>0))
@@ -95,9 +92,10 @@ void juego(FILE *map)
             n_laberintos=n_laberintos+1;
         }
     }
+    srand(time(NULL));
     mapa_jugable = rand() % n_laberintos+1;
-    mapa_jugable--;
-
+    mapa_jugable = mapa_jugable-1;
+    //a arreglar: la n tiene que ser random para elegir el mapa
     //Funcion para definir cordenadas de jugador
     system("cls");
     decidir_posicion(mapas, mapa_jugable);
