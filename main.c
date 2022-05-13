@@ -11,6 +11,9 @@ int main()
     pantallaInicio();
     getch(); //loophole no preguntes
 
+    system("color f0"); //probando
+
+
     int input;
     char character;
     //infinite_loop:
