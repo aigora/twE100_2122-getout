@@ -183,68 +183,76 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
         switch (caso)
         {
             case ('w'):
-                if (posicion.x<=medidas.x-1&&posicion.x>=0)
+                if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==0)
                     {
-                        k=1;
+                        posicion.x=1;
                     }
                     else
                     {
-                        posicion.x=posicion.x-1;
-                        k=0;
+                        posicion.x=posicion.x-1;    
                     }
+                    k=0;
                 }
                 else
-                k=1;
+                {
+                    k=1;
+                }
                 break;
             case ('s'):
-                if (posicion.x<=medidas.x-1&&posicion.x>=0)
+                if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==medidas.x-1)
                     {
-                        k=1;
+                        posicion.x=medidas.x-2;
                     }
                     else
                     {
                         posicion.x=posicion.x+1;
-                        k=0;
                     }
+                    k=0;    
                 }
                 else
-                k=1;
+                {
+                    k=1;
+                }
                 break;
             case ('d'):
-                if (posicion.y<=medidas.y-1&&posicion.y>=0)
+                if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==medidas.y-1)
                     {
-                        k=1;
+                        posicion.y=medidas.y-2;
                     }
                     else
                     {
                         posicion.y=posicion.y+1;
-                        k=0;
                     }
+                    k=0;    
                 }
                 else
-                k=1;
+                {
+                    k=1;
+                }
                 break;
             case ('a'):
-                if (posicion.y<=medidas.y-1&&posicion.y>=0)
+                if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==0)
                     {
-                        k=1;
+                        posicion.y=1;
                     }
                     else
                     {
                         posicion.y=posicion.y-1;
-                        k=0;
                     }
+                    k=0;    
                 }
                 else
-                k=1;
+                {
+                    k=1;
+                }
                 break;
             default:
                 break;
