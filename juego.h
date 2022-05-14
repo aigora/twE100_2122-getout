@@ -23,6 +23,8 @@ dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], i
 dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 void decidir_posicion(char mapas[][200][200], int mapa_jugable);
 void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
+//imprimir los mapas personalizaddos para escoger
+void imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas);
 
 //funcion de muestra de mapa
 void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);

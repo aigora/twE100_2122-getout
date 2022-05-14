@@ -101,20 +101,34 @@ void juego(FILE *map)
             }
         }
     }
-    dosDatos exit;
-    for ( i = 0; i < 30; i++)
+    if ((medidas[0].x==1)&&(medidas[0].y==11))
     {
-        if ((medidas[i].x>0)&&(medidas[i].y>0))
+        for ( i = 0; i < 30; i++)
         {
-            n_laberintos=n_laberintos+1;
+            if ((medidas[i].x>0)&&(medidas[i].y>0))
+            {
+                n_laberintos=n_laberintos+1;
+            }
         }
+        imprimir_mapa_entero(mapas, medidas, n_laberintos);
+        scanf("%i", &mapa_jugable);
     }
-    srand(time(NULL));
-    mapa_jugable = rand() % n_laberintos+1;
-    mapa_jugable = mapa_jugable-1;
-    //a arreglar: la n tiene que ser random para elegir el mapa
-    //Funcion para definir cordenadas de jugador
+    else
+    {
+        for ( i = 0; i < 30; i++)
+        {
+            if ((medidas[i].x>0)&&(medidas[i].y>0))
+            {
+                n_laberintos=n_laberintos+1;
+            }
+        }
+        srand(time(NULL));
+        mapa_jugable = rand() % n_laberintos+1;
+        mapa_jugable = mapa_jugable-1;
+    }
+    dosDatos exit;
     system("cls");
+    //Funcion para definir cordenadas de jugador
     decidir_posicion(mapas, mapa_jugable);
     exit=analizar_posicion_salida(mapas, medidas, mapa_jugable);
     imprimir_area(mapas, medidas, mapa_jugable);
@@ -363,4 +377,31 @@ dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], in
         }
     }
     return posicion;
+}
+void imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas)
+{
+    int i, j, k;
+    system("cls");
+    printf("Escoge mapa:\n");
+    for ( k = 1; k < numero_mapas; k++)
+    {
+        printf("Mapa %i\n",  k);
+        printf("%i %i\n", medidas[k].x, medidas[k].y);
+        for ( i = 0; i < medidas[k].x; i++)
+        {
+            for ( j = 0; j < medidas[k].y; j++)
+            {
+                if (mapas[k][i][j]=='#')
+                {
+                    printf("%c", 219);
+                }
+                else
+                {
+                    printf("%c", mapas[k][i][j]);
+                }
+            }
+            printf("\n");
+        }
+    }
+    printf("\n");
 }

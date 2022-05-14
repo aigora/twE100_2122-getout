@@ -1,3 +1,5 @@
+1 11
+Laberintos:
 25 25
 #########################
 #o#o#ooooo#ooo#o#o#ooo#o#
@@ -23,4 +25,30 @@
 #oooo#oooooooooo#ooo#ooo#
 ######o#o####o#o#o#o#o#o#
 #oooooo#oooo#o#ooo#ooo#M#
+#########################
+25 25
+#########################
+#o#ooo#ooo#ooooo#ooooooo#
+#o#o#o#o#ooo#o#o#o#####o#
+#o#o#ooo#o###o#o#oooo#oo#
+#ooo#o#o#ooo#o#o##o#o#o##
+##o##o#o###o#o#oooooo#oo#
+#ooooo#ooooo#ooo####o##o#
+#######o#o###o#o#o#ooooo#
+#ooooooo#ooooo#ooo#o#ooo#
+#o#######o######o##o###o#
+#o#ooo#ooooo#ooooo#ooo#o#
+#ooo#o#o###o#o###o#o#ooo#
+#o###ooo#ooo#ooo#ooo###o#
+#ooooo###o#####o#ooooooo#
+#o###ooo#o#oMo#o###o###o#
+#ooo#o#o#o#ooo#o#o#ooo#o#
+###o#o#ooo###ooooo#ooo#o#
+#o#ooooo#ooo#o#o#o#######
+#o#####o###o#o#o#ooooooo#
+#o#o#ooo#ooo#o#o###o#####
+#o#ooo#o#o###ooooooooooo#
+#ooo#o#ooooo#o#ooo#o##o##
+###o#o#o#####o#####o#oo##
+#ooo#ooo#ooooooooooo#ooo#
 #########################
