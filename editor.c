@@ -34,7 +34,7 @@ void editor()
     {
         for ( j = 0; j < medidas.y; j++)
         {
-            mapa[i][j]=158;
+            mapa[i][j]='x';
         }      
     }
     for ( i = 0; i < medidas.x; i++)
@@ -53,7 +53,7 @@ void editor()
     {
         imprimir_lab(mapa,medidas, p);
         printf("mueve cursor(w,a,s,d)\n");
-        printf("presiona segun lo que quieras colocar:\npared(p)\nespacio(o)\nsalida(m)\nGuardar(G)");
+        printf("presiona segun lo que quieras colocar:\npared(p)\nespacio(o)\nsalida(m)\nGuardar(G)\nSalir del editor(x)");
         fflush(stdin);
         pared=getch();
         if (pared=='w'||pared=='d'||pared=='a'||pared=='s')
@@ -86,29 +86,37 @@ void editor()
                 system("pause");
             }
         }
+        if (pared=='x')
+        {
+            break;
+        }
         
     } while (save!='G');
-    for ( i = 0; i < medidas.x; i++)
+    if (save=='G')
     {
-        for ( j = 0; j < medidas.y; j++)
+        for ( i = 0; i < medidas.x; i++)
         {
-            if (mapa[i][j]== 158)
+            for ( j = 0; j < medidas.y; j++)
             {
-                mapa[i][j]='o';
+                if (mapa[i][j]=='x')
+                {
+                    mapa[i][j]='o';
+                }
             }
         }
-    }
-    map=fopen("Niveles_editor.txt", "a");
-    fprintf(map, "%i %i\n", medidas.x, medidas.y);
-    for ( i = 0; i < medidas.x; i++)
-    {
-        for ( j = 0; j < medidas.y; j++)
+        map=fopen("Niveles_editor.txt", "a");
+        fprintf(map, "%i %i\n", medidas.x, medidas.y);
+        for ( i = 0; i < medidas.x; i++)
         {
-            fprintf(map, "%c", mapa[i][j]);
+            for ( j = 0; j < medidas.y; j++)
+            {
+                fprintf(map, "%c", mapa[i][j]);
+            }
+            fprintf(map, "\n");
         }
-        fprintf(map, "\n");
+        fclose(map);
     }
-    fclose(map);
+    
 }
 void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 {
