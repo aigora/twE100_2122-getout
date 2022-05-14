@@ -167,7 +167,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
     }
     if (caso=='o'||caso=='w'||caso=='a'||caso=='s'||caso=='d')
     {
-        mapa[posicion.x][posicion.y]= 158;
+        mapa[posicion.x][posicion.y]= 'x';
     }
     if (caso=='m')
     {
@@ -176,7 +176,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
         {
             printf("\nYa existe una salida\n");
             system("pause");
-            mapa[posicion.x][posicion.y]= 158;
+            mapa[posicion.x][posicion.y]= 'x';
         }
         if (permiso==0)
         {
