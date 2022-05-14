@@ -94,7 +94,7 @@ Laberintos:
 #o#oooooo#oo#ooo#oo#######o#o#ooo#o##o#o#ooo#oooo#
 #o#oo###oo#o#o#o#oo#ooooooo#o#o#o#oooo#o###o#o####
 ####o#oooo#ooo####o#o####o#oo#o#o#o#oo#oooooooooo#
-#oooo#o#ooo#ooo#o#o#o#ooo#oo##o#o#o##ooo#######o##
+#oooo#o#ooo#ooo#o#o#ooooo#oo##o#o#o##ooo#######o##
 ##o###o#o#oo##oooooooo#o#oooooo#o#o#oo#o#oooooooo#
 #oooooo#o#oo#o########ooooo#####o#o##o#o#o######o#
 #####o#####o#oooooooooo#####ooo#o#oo#o#ooooooo#oo#
