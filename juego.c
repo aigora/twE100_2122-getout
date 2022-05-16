@@ -129,7 +129,7 @@ void juego(FILE *map)
     dosDatos exit;
     system("cls");
     //Funcion para definir cordenadas de jugador
-    decidir_posicion(mapas, mapa_jugable);
+    decidir_posicion(mapas, medidas, mapa_jugable);
     exit=analizar_posicion_salida(mapas, medidas, mapa_jugable);
     imprimir_area(mapas, medidas, mapa_jugable);
     do
@@ -274,25 +274,46 @@ dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], i
     return posicion;
 }
 
-void decidir_posicion(char mapas[][200][200], int mapa_jugable)
+void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable)
 {
     dosDatos jugador;
     int k=0;
     do
     {
-        PantallaSeleccionPosicion();
-        scanf("%i %i", &jugador.x, &jugador.y);
-        if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
+        if ((medidas[0].x==1)&&(medidas[0].y==11))
         {
-            mapas[mapa_jugable][jugador.x][jugador.y]='x';
-            k=1;
+            PantallaSeleccionPosicionEditor();
+            printf("%ix%i\n", medidas[mapa_jugable].x, medidas[mapa_jugable].y);
+            scanf("%i %i", &jugador.x, &jugador.y);
+            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
+            {
+                mapas[mapa_jugable][jugador.x][jugador.y]='x';
+                k=1;
+            }
+            else
+            {
+                k=0;
+                printf("Si no se borra este comando es porque la posicion coincide con una pared, por favor ingrese otra cordenada\n");
+                system("pause");
+                system("cls");
+            }
         }
         else
         {
-            k=0;
-            printf("Si no se borra este comando es porque la posicion coincide con una pared, por favor ingrese otra cordenada\n");
-            system("pause");
-            system("cls");
+            PantallaSeleccionPosicion();
+            scanf("%i %i", &jugador.x, &jugador.y);
+            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
+            {
+                mapas[mapa_jugable][jugador.x][jugador.y]='x';
+                k=1;
+            }
+            else
+            {
+                k=0;
+                printf("Si no se borra este comando es porque la posicion coincide con una pared, por favor ingrese otra cordenada\n");
+                system("pause");
+                system("cls");
+            }
         }
     } while (k==0);
 }

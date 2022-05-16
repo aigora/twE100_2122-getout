@@ -28,6 +28,8 @@ void editor()
             printf("Escribe un laberinto con las caracteristicas indicadas\n");
             k=0;
         }
+        system("pause");
+        system("cls");
     } while (k==0);
     printf("Cuando termines presiona G(solo usa mayusculas con la G)\n");
     for ( i = 0; i < medidas.x; i++)
@@ -53,7 +55,7 @@ void editor()
     {
         imprimir_lab(mapa,medidas, p);
         printf("mueve cursor(w,a,s,d)\n");
-        printf("presiona segun lo que quieras colocar:\npared(p)\nespacio(o)\nsalida(m)\nGuardar(G)\nSalir del editor(x)");
+        printf("presiona segun lo que quieras colocar:\npared(p)\nespacio(o)\nsalida(m)\nGuardar(G)\nSalir del editor(x)\n");
         fflush(stdin);
         pared=getch();
         if (pared=='w'||pared=='d'||pared=='a'||pared=='s')
@@ -181,23 +183,38 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
     {
         mapa[posicion.x][posicion.y]='#';
     }
-    if (caso=='o'||caso=='w'||caso=='a'||caso=='s'||caso=='d')
+    if (caso=='o')
     {
-        mapa[posicion.x][posicion.y]= 'x';
+        if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
+        {
+            printf("No se pueden editar las paredes predeterminadas\n");
+            system("pause");
+        }
+        else
+        {
+            mapa[posicion.x][posicion.y]= 'x';
+        }
     }
     if (caso=='m')
     {
-        permiso=detectar_salida(mapa, medidas, posicion);
-        if (permiso==1)
+        if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
         {
-            printf("\nYa existe una salida\n");
+            printf("No se pueden editar las paredes predeterminadas\n");
             system("pause");
-            mapa[posicion.x][posicion.y]= 'x';
         }
-        if (permiso==0)
-        {
-            mapa[posicion.x][posicion.y]='M';
-        }   
+        else{
+            permiso=detectar_salida(mapa, medidas, posicion);
+            if (permiso==1)
+            {
+                printf("Ya existe una salida\n");
+                system("pause");
+                mapa[posicion.x][posicion.y]= 'x';
+            }
+            if (permiso==0)
+            {
+                mapa[posicion.x][posicion.y]='M';
+            }   
+        }
     }
 }
 dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)

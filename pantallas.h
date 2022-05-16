@@ -15,3 +15,6 @@ void pantallaFinal();
 
 //Pantalla de seleccion de posicion
 void PantallaSeleccionPosicion();
+
+//Pantalla de seleccion de posicion para el editor
+void PantallaSeleccionPosicionEditor();

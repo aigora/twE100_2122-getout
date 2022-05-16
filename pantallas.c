@@ -62,3 +62,7 @@ void PantallaSeleccionPosicion(){
     printf("Escribe una posicion de la cual empezar\n");
     printf("Recuerda las dimensiones de los niveles\nFacil:25x25\nMedio:50x50\nDificil:100x100\n");
 }
+void PantallaSeleccionPosicionEditor(){
+    printf("Escribe una posicion de la cual empezar\n");
+    printf("Dimensiones del mapa escogido: ");
+}
