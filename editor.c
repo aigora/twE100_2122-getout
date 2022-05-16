@@ -14,11 +14,11 @@ void editor()
     p.y=1;
     do
     {
-        printf("Determine la dimension del laberinto(maximo 50x50)\n");
+        printf("Determine la dimension del laberinto(minimo 4x4, maximo 50x50)\n");
         scanf("%i %i", &medidas.x, &medidas.y);
-        if (medidas.x>0&&medidas.x<=50)
+        if ((medidas.x>=4&&medidas.x<=50))
         {
-            if (medidas.y>0&&medidas.y<=50)
+            if (medidas.y>=4&&medidas.y<=50)
             {
                 k=1;
             }
@@ -138,9 +138,17 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
                 }
                 else
                 {
-                    printf("\x1b[33m");
-                    printf("%c ", mapa[i][j]);
-                    printf("\x1b[0m");
+                    if (mapa[i][j]=='x')
+                    {
+                        printf("\x1b[33m");
+                        printf("%c%c", 219, 219);
+                        printf("\x1b[0m");
+                    }
+                    else{
+                        printf("\x1b[33m");
+                        printf("%c ", mapa[i][j]);
+                        printf("\x1b[0m");
+                    }
                 }
             }
             else
@@ -151,7 +159,15 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
                 }
                 else
                 {
-                    printf("%c ", mapa[i][j]);
+                    if (mapa[i][j]=='x')
+                    {
+                        printf("\x1b[30m");
+                        printf("%c%c", 219, 219);
+                        printf("\x1b[0m");
+                    }
+                    else{
+                        printf("%c ", mapa[i][j]);
+                    }
                 }
             }
         }
