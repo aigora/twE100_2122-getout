@@ -78,7 +78,7 @@ void juego(FILE *map)
 
     //utilizaremos la i para el numero de laberinto
     //la j para la fila del laberinto y la k para la columna del laberinto
-    int i, j, k, n_laberintos=0, mapa_jugable;
+    int i, j, k, n_laberintos=0, mapa_jugable, movimientos=0;
     dosDatos medidas[30];
     
     for (i = 0; i < 30; i++) 
@@ -136,6 +136,13 @@ void juego(FILE *map)
     {
         mov(mapas, medidas, mapa_jugable);
         imprimir_area(mapas, medidas, mapa_jugable);
+        movimientos=movimientos+1;
+        if (movimientos==15)
+        {
+            Pista_meta(mapas, medidas, mapa_jugable);
+            movimientos=0;
+        }
+        
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
@@ -340,29 +347,6 @@ void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
     if (jugador.x>medidas[mapa_jugable].x-7){
         area2.x=medidas[mapa_jugable].x-7;
     } 
-    //imprime el mapa entero:
-    /* printf("\n\n\n");
-    for ( i = 0; i < medidas[mapa_jugable].x; i++)
-    {
-        printf("\t\t\t\t");
-        for ( j = 0; j < medidas[mapa_jugable].y; j++)
-        {
-            printf("%c ", mapas[mapa_jugable][i][j]);
-        }
-        printf("\n");
-    } */
-    //imprime un area entorno al jugador:
-    /* printf("\n\n\n");
-    for ( i = (area1.x-7); i <= (area2.x+7); i++)
-    {
-        printf("\t\t\t\t");
-        for ( j = (area1.y-7); j <= (area2.y+7); j++)
-        {
-            printf("%c ", mapas[mapa_jugable][i][j]);
-        }
-        printf("\n");
-    } */
-    //imprime area entorno al jugador con el caracter 219
     printf("\n\n\n");
     for ( i = (area1.x-7); i <= (area2.x+7); i++)
     {
@@ -425,4 +409,156 @@ void imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero
         }
     }
     printf("\n");
+}
+void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
+{
+    dosDatos salida, jugador;
+    jugador=analizar_posicion_jugador(mapas, medidas, mapa_jugable);
+    salida=analizar_posicion_salida(mapas, medidas, mapa_jugable);
+    if (jugador.y==salida.y)
+    {
+        printf("alineado con la meta en el eje x\n");
+    }
+    else
+    {
+        if (jugador.y>salida.y)
+        {
+            printf("izquierda\n");
+        }
+        if (jugador.y<salida.y)
+        {
+            printf("derecha\n");
+        }    
+    }
+    if (jugador.x==salida.x)
+    {
+        printf("alineado con la meta en el eje y\n");
+    }
+    else
+    {
+        if (jugador.x>salida.x)
+        {
+            printf("arriba\n");
+        }
+        if (jugador.x<salida.x)
+        {
+            printf("abajo\n");
+        }        
+    }
+}
+void getout()
+{
+    system("cls");
+    pantallaInicio();
+    getch(); //loophole no preguntes
+
+    int input;
+    char character;
+    //infinite_loop:
+
+        seleccionSeleccion:
+        system("cls");
+        pantallaSeleccion();
+        input = getch();
+        switch (input) {
+            case '1':
+                //pantalla de jugar
+                system("cls");
+                goto seleccionDificultad;
+                break;
+
+            case '2':
+                //llevaria a la pantalla de ver el historial
+                system("cls");
+                goto seleccionSeleccion;                
+                break;
+
+            case '3':
+                //lleva hasta el editor de niveles
+                system("cls");
+                editor();
+                goto seleccionSeleccion;
+                break;
+
+            case '4':
+                //Sales del programa
+                system("cls");
+                pantallaFinal();
+                system("cls");
+                exit(0);
+                break;
+            
+
+            default:
+                //continua el bucle
+                goto seleccionSeleccion;             
+                break;
+        }
+        seleccionDificultad:
+        system("cls");
+        pantallaDificultad();
+        input = getch();
+        switch (input) {
+            case '1': 
+                //lleva al modo facil
+                Facil();
+                break;
+
+            case '2': 
+                //lleva al modo medio
+                Medio();
+                break;
+            
+            case '3': 
+                //lleva al modo dificil
+                Dificil();
+                break;
+
+            case '4':
+                //lleva al modo personalizado
+                Personalizado();
+                break;
+
+            case '5':
+                //lleva a la pantalla de seleccion
+                system("cls");
+                goto seleccionSeleccion;
+                break;
+
+            default:
+                //continua esta parte del bucle
+                goto seleccionDificultad;
+                break;
+        }
+
+        meta:
+        system("cls");
+        pantallaMeta();
+        character = getch();
+        switch (character) {
+            case 's':
+                //aqui iria para guardar la puntuacion
+                goto meta;
+                break;
+
+            case 'S':
+                //igual que la minuscula
+                goto meta;
+                break;
+
+            case 'n':
+                goto seleccionSeleccion;
+                break;
+
+            case 'N':
+                goto seleccionSeleccion;
+                break;
+
+            default:
+                system("cls");
+                goto meta;
+                break;
+        }
+
+    //goto infinite_loop;
 }
