@@ -78,7 +78,7 @@ void juego(FILE *map)
 
     //utilizaremos la i para el numero de laberinto
     //la j para la fila del laberinto y la k para la columna del laberinto
-    int i, j, k, n_laberintos=0, mapa_jugable, movimientos=0;
+    int i, j, k, n_laberintos=0, mapa_jugable;//movimientos=0;
     dosDatos medidas[30];
     
     for (i = 0; i < 30; i++) 
@@ -136,13 +136,13 @@ void juego(FILE *map)
     {
         mov(mapas, medidas, mapa_jugable);
         imprimir_area(mapas, medidas, mapa_jugable);
-        movimientos=movimientos+1;
+        Pista_meta(mapas, medidas, mapa_jugable);
+        /* movimientos=movimientos+1;
         if (movimientos==15)
         {
             Pista_meta(mapas, medidas, mapa_jugable);
             movimientos=0;
-        }
-        
+        } */
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
@@ -415,34 +415,36 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
     dosDatos salida, jugador;
     jugador=analizar_posicion_jugador(mapas, medidas, mapa_jugable);
     salida=analizar_posicion_salida(mapas, medidas, mapa_jugable);
+    printf("Pista:\n");
     if (jugador.y==salida.y)
     {
-        printf("alineado con la meta en el eje x\n");
+        printf("-alineado con la meta en el eje x\n");
     }
     else
     {
         if (jugador.y>salida.y)
         {
-            printf("izquierda\n");
+            printf("-izquierda\n");
         }
         if (jugador.y<salida.y)
         {
-            printf("derecha\n");
+            printf("-derecha\n");
         }    
     }
+    printf("\n");
     if (jugador.x==salida.x)
     {
-        printf("alineado con la meta en el eje y\n");
+        printf("-alineado con la meta en el eje y\n");
     }
     else
     {
         if (jugador.x>salida.x)
         {
-            printf("arriba\n");
+            printf("-arriba\n");
         }
         if (jugador.x<salida.x)
         {
-            printf("abajo\n");
+            printf("-abajo\n");
         }        
     }
 }
