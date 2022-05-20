@@ -54,22 +54,13 @@ void editor()
         fflush(stdin);
         pared=getch();
 
-        if (pared=='w'||pared=='d'||pared=='a'||pared=='s') {
+        if (pared=='w'||pared=='d'||pared=='a'||pared=='s'||pared=='W'||pared=='D'||pared=='A'||pared=='S') {
             p=mover_cursor(mapa,medidas, p, pared);
         }
 
-        if (pared=='p'||pared=='o'||pared=='m') {
+        if (pared=='p'||pared=='o'||pared=='m'||pared=='P'||pared=='O'||pared=='M') {
             editar_lab(mapa, medidas, p, pared);
         }
-        /* if (pared=='o')
-        {
-            editar_lab(c, a, b, p, pared);
-        }
-        if (pared=='m')
-        {
-            editar_lab(c, a, b, p, pared);
-        } */
-
         if (pared=='G'||pared=='g') {
             detectar=detectar_salida(mapa, medidas, p);
             if (detectar==1)
@@ -83,7 +74,6 @@ void editor()
                 system("pause");
             }
         }
-
         if (pared == 'x' || pared == 'X') {
             char decision;
             decision = salida();
@@ -184,11 +174,11 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int permiso;
-    if (caso=='p')
+    if (caso=='p'||caso=='P')
     {
         mapa[posicion.x][posicion.y]='#';
     }
-    if (caso=='o')
+    if (caso=='o'||caso=='O')
     {
         if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
         {
@@ -200,7 +190,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
             mapa[posicion.x][posicion.y]= 'x';
         }
     }
-    if (caso=='m')
+    if (caso=='m'||caso=='M')
     {
         if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
         {
@@ -247,7 +237,43 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
+            case ('W'):
+                if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
+                {
+                    if (posicion.x==0)
+                    {
+                        posicion.x=1;
+                    }
+                    else
+                    {
+                        posicion.x=posicion.x-1;    
+                    }
+                    k=0;
+                }
+                else
+                {
+                    k=1;
+                }
+                break;
             case ('s'):
+                if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
+                {
+                    if (posicion.x==medidas.x-1)
+                    {
+                        posicion.x=medidas.x-2;
+                    }
+                    else
+                    {
+                        posicion.x=posicion.x+1;
+                    }
+                    k=0;    
+                }
+                else
+                {
+                    k=1;
+                }
+                break;
+            case ('S'):
                 if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==medidas.x-1)
@@ -283,7 +309,43 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
+            case ('D'):
+                if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
+                {
+                    if (posicion.y==medidas.y-1)
+                    {
+                        posicion.y=medidas.y-2;
+                    }
+                    else
+                    {
+                        posicion.y=posicion.y+1;
+                    }
+                    k=0;    
+                }
+                else
+                {
+                    k=1;
+                }
+                break;
             case ('a'):
+                if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
+                {
+                    if (posicion.y==0)
+                    {
+                        posicion.y=1;
+                    }
+                    else
+                    {
+                        posicion.y=posicion.y-1;
+                    }
+                    k=0;    
+                }
+                else
+                {
+                    k=1;
+                }
+                break;
+            case ('A'):
                 if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==0)

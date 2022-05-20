@@ -26,7 +26,7 @@ dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], in
 void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable);
 
 void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
-//Dice pistas para saber donde esta la meta cada 15 movimientos
+//Dice pistas para saber donde esta la meta en cada movimiento
 void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 //imprimir los mapas personalizaddos para escoger
 int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas);

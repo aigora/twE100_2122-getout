@@ -101,6 +101,7 @@ void juego(FILE *map)
             }
         }
     }
+    //if que detecta si el principio del fichero coincide con el principio de los mapas personalizados
     if ((medidas[0].x==1)&&(medidas[0].y==11))
     {
         for ( i = 0; i < 30; i++)
@@ -121,6 +122,7 @@ void juego(FILE *map)
         } while (condicion==0);
         
     }
+    //va contando todos los mapas del fichero dificultad abierto para escoger un mapa aleatorio
     else
     {
         for ( i = 0; i < 30; i++)
@@ -145,12 +147,6 @@ void juego(FILE *map)
         mov(mapas, medidas, mapa_jugable);
         imprimir_area(mapas, medidas, mapa_jugable);
         Pista_meta(mapas, medidas, mapa_jugable);
-        /* movimientos=movimientos+1;
-        if (movimientos==15)
-        {
-            Pista_meta(mapas, medidas, mapa_jugable);
-            movimientos=0;
-        } */
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
@@ -400,7 +396,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
         system("cls");
         printf("Escoge mapa, presiona enter cuando veas el mapa que quieras\n");
         printf("Cambia de mapa presionando:\nA -> izquierda\nD -> derecha\n");
-        printf("medidas:%ix%i\n", medidas[mapa_mostrado].x, medidas[mapa_mostrado].y);
+        printf("Medidas:%ix%i\n", medidas[mapa_mostrado].x, medidas[mapa_mostrado].y);
         for ( i = 0; i < medidas[mapa_mostrado].x; i++)
         {
             printf("\t\t\t\t\t");
