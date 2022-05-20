@@ -54,11 +54,11 @@ void editor()
         fflush(stdin);
         pared=getch();
 
-        if (pared=='w'||pared=='d'||pared=='a'||pared=='s'||pared=='W'||pared=='D'||pared=='A'||pared=='S') {
+        if (pared==80||pared==77||pared==75||pared==72) {
             p=mover_cursor(mapa,medidas, p, pared);
         }
 
-        if (pared=='p'||pared=='o'||pared=='m'||pared=='P'||pared=='O'||pared=='M') {
+        if (pared=='d'||pared=='a'||pared=='s'||pared=='D'||pared=='A'||pared=='S') {
             editar_lab(mapa, medidas, p, pared);
         }
         if (pared=='G'||pared=='g') {
@@ -174,11 +174,11 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int permiso;
-    if (caso=='p'||caso=='P')
+    if (caso=='A'||caso=='a')
     {
         mapa[posicion.x][posicion.y]='#';
     }
-    if (caso=='o'||caso=='O')
+    if (caso=='d'||caso=='D')
     {
         if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
         {
@@ -190,7 +190,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
             mapa[posicion.x][posicion.y]= 'x';
         }
     }
-    if (caso=='m'||caso=='M')
+    if (caso=='s'||caso=='S')
     {
         if ((posicion.x==0)||(posicion.x==medidas.x-1)||(posicion.y==0)||(posicion.y==medidas.y-1))
         {
@@ -219,7 +219,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
     do{
         switch (caso)
         {
-            case ('w'):
+            case (72):
                 if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==0)
@@ -237,7 +237,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
-            case ('W'):
+            /* case ('W'):
                 if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==0)
@@ -254,8 +254,8 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                 {
                     k=1;
                 }
-                break;
-            case ('s'):
+                break; */
+            case (80):
                 if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==medidas.x-1)
@@ -273,7 +273,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
-            case ('S'):
+            /* case ('S'):
                 if ((posicion.x>=0)&&(posicion.x<=medidas.x-1))
                 {
                     if (posicion.x==medidas.x-1)
@@ -290,8 +290,8 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                 {
                     k=1;
                 }
-                break;
-            case ('d'):
+                break; */
+            case (77):
                 if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==medidas.y-1)
@@ -309,7 +309,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
-            case ('D'):
+            /* case ('D'):
                 if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==medidas.y-1)
@@ -326,8 +326,8 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                 {
                     k=1;
                 }
-                break;
-            case ('a'):
+                break; */
+            case (75):
                 if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==0)
@@ -345,7 +345,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                     k=1;
                 }
                 break;
-            case ('A'):
+            /* case ('A'):
                 if ((posicion.y>=0)&&(posicion.y<=medidas.y-1))
                 {
                     if (posicion.y==0)
@@ -362,7 +362,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
                 {
                     k=1;
                 }
-                break;
+                break; */
             default:
                 break;
             }
@@ -399,7 +399,7 @@ char guardar()
             return 'G';
         }
         if (aux == 'n' || aux == 'N') {
-            return 'a';
+            return 'q';
         }  
     } while (loop == 1);
     
