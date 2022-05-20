@@ -41,10 +41,12 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
 dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
 
 char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion);
+
 //Guardado de laberinto
 char guardar();
+
+//Confirmacion salida del laberinto
+char salida();
+
 //Laberinto creado
 void editor();
-//
-//funcion del juego final
-void getout();

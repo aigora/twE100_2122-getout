@@ -13,8 +13,17 @@ void pantallaMeta();
 //render pantalla final
 void pantallaFinal();
 
+//pantalla que pide las dimensiones al jugador
+void pantallaDimensiones();
+
+//pantalla que pide las dimensiones al jugador de nuevo
+void pantallaDimensionesError();
+
 //Pantalla de seleccion de posicion
-void PantallaSeleccionPosicion();
+void pantallaInstrucciones();
+
+//Seccion con instrucciones de la parte de debajo del editor de mapas
+void seccionInstrucciones();
 
 //Pantalla de seleccion de posicion para el editor
 void PantallaSeleccionPosicionEditor();

@@ -3,6 +3,7 @@
 #include <conio.h>
 
 #include "juego.h"
+#include "pantallas.h"
 
 void editor()
 {
@@ -12,26 +13,22 @@ void editor()
     dosDatos p, medidas;
     p.x=1;
     p.y=1;
-    do
-    {
-        printf("Determine la dimension del laberinto(minimo 4x4, maximo 50x50)\n");
+
+    do {
+        pantallaDimensiones();
         scanf("%i %i", &medidas.x, &medidas.y);
-        if ((medidas.x>=4&&medidas.x<=50))
-        {
-            if (medidas.y>=4&&medidas.y<=50)
-            {
-                k=1;
+        if ((medidas.x>=4&&medidas.x<=50)) {
+            if (medidas.y>=4&&medidas.y<=50) {
+                k = 1;
             }
-        }
-        else
-        {
-            printf("Escribe un laberinto con las caracteristicas indicadas\n");
-            k=0;
+        } else {
+            printf("No ha introducido unas coordenadas dentro del rango\nVuelva a intentarlo.");
+            k = 0;
         }
         system("pause");
         system("cls");
-    } while (k==0);
-    printf("Cuando termines presiona G(solo usa mayusculas con la G)\n");
+    } while (k == 0);
+
     for ( i = 0; i < medidas.x; i++)
     {
         for ( j = 0; j < medidas.y; j++)
@@ -49,21 +46,19 @@ void editor()
         mapa[0][j]='#';
         mapa[medidas.x-1][j]='#';
     }
-    system("pause");
-    system("cls");
+
     do
     {
         imprimir_lab(mapa,medidas, p);
-        printf("mueve cursor(w,a,s,d)\n");
-        printf("presiona segun lo que quieras colocar:\npared(p)\nespacio(o)\nsalida(m)\nGuardar(G)\nSalir del editor(x)\n");
+        seccionInstrucciones();
         fflush(stdin);
         pared=getch();
-        if (pared=='w'||pared=='d'||pared=='a'||pared=='s')
-        {
+
+        if (pared=='w'||pared=='d'||pared=='a'||pared=='s') {
             p=mover_cursor(mapa,medidas, p, pared);
         }
-        if (pared=='p'||pared=='o'||pared=='m')
-        {
+
+        if (pared=='p'||pared=='o'||pared=='m') {
             editar_lab(mapa, medidas, p, pared);
         }
         /* if (pared=='o')
@@ -74,8 +69,8 @@ void editor()
         {
             editar_lab(c, a, b, p, pared);
         } */
-        if (pared=='G'||pared=='g')
-        {
+
+        if (pared=='G'||pared=='g') {
             detectar=detectar_salida(mapa, medidas, p);
             if (detectar==1)
             {
@@ -88,12 +83,20 @@ void editor()
                 system("pause");
             }
         }
-        if (pared=='x')
-        {
-            break;
+
+        if (pared == 'x' || pared == 'X') {
+            char decision;
+            decision = salida();
+            if (decision == 's') {
+                break;
+            }
+            if (decision == 'n') {
+                //do nothing
+            }
         }
-        
+
     } while (save!='G');
+
     if (save=='G')
     {
         for ( i = 0; i < medidas.x; i++)
@@ -120,6 +123,7 @@ void editor()
     }
     
 }
+
 void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 {
     int i, j;
@@ -176,6 +180,7 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
         printf("\n");
     }
 }
+
 void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int permiso;
@@ -217,6 +222,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
         }
     }
 }
+
 dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int k=1;
@@ -301,6 +307,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
         }while(k==1);
     return posicion;
 }
+
 char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 {
     int i, j;
@@ -316,17 +323,39 @@ char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion)
     }
     return 0;
 }
+
 char guardar()
 {
     char aux;
-    printf("\nQuieres guardar?\nsi(y)\tno(n)");
-    aux=getch();
-    if (aux=='y')
-    {
-        return 'G';
-    }
-    else
-    {
-        return 'a';
+    int loop = 1;
+    printf("\n    Quieres guardar?\n    S - Si\n    N - No");
+
+    do {
+        aux=getch();
+
+        if (aux == 's' || aux == 'S') {
+            return 'G';
+        }
+        if (aux == 'n' || aux == 'N') {
+            return 'a';
+        }  
+    } while (loop == 1);
+    
+}
+
+char salida() {
+    char input;
+    int loop = 1;
+    printf("\n    Seguro que quieres salir?\n    S - Si\n    N - No");
+    
+    while (loop == 1) {
+        input = getch();
+        
+        if (input == 's' || input == 'S') {
+            return 's';
+        }
+        if (input == 'n' || input == 'N') {
+            return 'n';
+        }
     }
 }
