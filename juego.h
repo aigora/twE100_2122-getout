@@ -29,7 +29,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 //Dice pistas para saber donde esta la meta cada 15 movimientos
 void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 //imprimir los mapas personalizaddos para escoger
-void imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas);
+int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas);
 
 //funcion de muestra de mapa
 void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);

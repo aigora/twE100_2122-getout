@@ -78,7 +78,7 @@ void juego(FILE *map)
 
     //utilizaremos la i para el numero de laberinto
     //la j para la fila del laberinto y la k para la columna del laberinto
-    int i, j, k, n_laberintos=0, mapa_jugable;//movimientos=0;
+    int i, j, k, n_laberintos=0, mapa_jugable, condicion=0;//movimientos=0;
     dosDatos medidas[30];
     
     for (i = 0; i < 30; i++) 
@@ -110,8 +110,16 @@ void juego(FILE *map)
                 n_laberintos=n_laberintos+1;
             }
         }
-        imprimir_mapa_entero(mapas, medidas, n_laberintos);
-        scanf("%i", &mapa_jugable);
+        do
+        {
+            mapa_jugable=imprimir_mapa_entero(mapas, medidas, n_laberintos);
+            if (mapa_jugable>=1&&mapa_jugable<=n_laberintos)
+            {
+                condicion=1;
+            }
+            
+        } while (condicion==0);
+        
     }
     else
     {
@@ -383,32 +391,69 @@ dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], in
     }
     return posicion;
 }
-void imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas)
+int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas)
 {
-    int i, j, k;
-    system("cls");
-    printf("Escoge mapa:\n");
-    for ( k = 1; k < numero_mapas; k++)
+    int i, j, bucle=1;
+    char seleccion, mapa_mostrado=1;
+    do
     {
-        printf("Mapa %i\n",  k);
-        printf("%i %i\n", medidas[k].x, medidas[k].y);
-        for ( i = 0; i < medidas[k].x; i++)
+        system("cls");
+        printf("Escoge mapa, presiona enter cuando veas el mapa que quieras\n");
+        printf("Cambia de mapa presionando:\nA -> izquierda\nD -> derecha\n");
+        printf("medidas:%ix%i\n", medidas[mapa_mostrado].x, medidas[mapa_mostrado].y);
+        for ( i = 0; i < medidas[mapa_mostrado].x; i++)
         {
-            for ( j = 0; j < medidas[k].y; j++)
+            printf("\t\t\t\t\t");
+            for ( j = 0; j < medidas[mapa_mostrado].y; j++)
             {
-                if (mapas[k][i][j]=='#')
+                if (mapas[mapa_mostrado][i][j]=='#')
                 {
-                    printf("%c", 219);
+                    printf("%c%c", 219, 219);
                 }
                 else
                 {
-                    printf("%c", mapas[k][i][j]);
+                    if (mapas[mapa_mostrado][i][j]=='M')
+                    {
+                        printf("  ");
+                    }
+                    else
+                    {
+                        printf("%c ", mapas[mapa_mostrado][i][j]);
+                    }
                 }
             }
-            printf("\n");
+            printf("\n");  
         }
-    }
-    printf("\n");
+        seleccion=getch();
+        if (seleccion=='d'||seleccion=='D')
+        {
+            if (mapa_mostrado==numero_mapas-1)
+            {
+                mapa_mostrado=1;
+            }
+            else
+            {
+                mapa_mostrado=mapa_mostrado+1;
+            }
+        }
+        if (seleccion=='a'||seleccion=='A')
+        {
+            if (mapa_mostrado==1)
+            {
+                mapa_mostrado=numero_mapas-1;
+            }
+            else
+            {
+                mapa_mostrado=mapa_mostrado-1;
+            }
+        }
+        if (seleccion==13)
+        {
+            bucle=0;
+        }
+        
+    } while (bucle==1);
+    return mapa_mostrado;
 }
 void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
