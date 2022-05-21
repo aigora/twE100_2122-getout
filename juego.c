@@ -443,7 +443,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
     {
         system("cls");
         printf("Escoge mapa, presiona enter cuando veas el mapa que quieras\n");
-        printf("Cambia de mapa presionando:\nPara moverse a la derecha: 'a', 'A' %c  %c\nPara moverse a la izquierda: 'd', 'D' %c  %c\n", 162, 16, 162, 17);
+        printf("Cambia de mapa presionando:\nPara moverse a la derecha: 'a'  'A'  '%c'\nPara moverse a la izquierda: 'd'  'D'  '%c'\n", 16, 17);
         printf("Medidas:%ix%i\n", medidas[mapa_mostrado].x, medidas[mapa_mostrado].y);
         for ( i = 0; i < medidas[mapa_mostrado].x; i++)
         {
