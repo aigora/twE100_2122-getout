@@ -189,3 +189,19 @@ Laberintos:
 #o#####o#ooo####o#o#o##
 #ooooooo#o#oo#ooooo#oM#
 #######################
+15 15
+###############
+#ooo#o#o#o#ooo#
+#o#o#o#o#o###o#
+#o#o#ooo#o#ooo#
+#o#o#o###ooo#o#
+#ooooo#ooo#####
+#o#o#o#o#o#ooo#
+#####o#o#o#o#o#
+#ooo#o#o###o#o#
+###ooooooooo#o#
+#o#o###o#o###o#
+#o#ooo#o#ooooo#
+#o#o#o#o#o#####
+#ooo#ooo#ooooM#
+###############

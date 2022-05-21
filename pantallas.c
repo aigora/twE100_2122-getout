@@ -68,11 +68,11 @@ void pantallaDimensiones() {
 }
 
 void seccionInstrucciones() {
-    printf("\n\n                                %c\n", 30);
-    printf("    Muevase con las teclas:   %c %c %c\n\n", 17, 31, 16);
+    printf("\n\n                                %c             W  \n", 30);
+    printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n\n", 17, 31, 16, 162);
     printf("    Teclas y acciones:\n\n");
-    printf("    A - Colocar pared      D - Colocar espacio\n");
-    printf("    S - Colocar meta       G - Guardar\n\n");
+    printf("    T - Colocar pared      E - Colocar espacio\n");
+    printf("    R - Colocar meta       G - Guardar\n\n");
     printf("    X - Salir del editor\n");
 }
 

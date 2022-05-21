@@ -183,7 +183,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
                 k=0;
             }
             break;
-        /* case ('W'):
+        case ('W'):
             if (up==' '||up=='M')
             {
                 jugador.x=jugador.x-1;
@@ -193,7 +193,18 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
             {
                 k=0;
             }
-            break; */
+            break;
+        case ('w'):
+            if (up==' '||up=='M')
+            {
+                jugador.x=jugador.x-1;
+                k=1;
+            }
+            else
+            {
+                k=0;
+            }
+            break; 
         case (80):
             if (down==' '||down=='M')
             {
@@ -205,7 +216,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
                 k=0;
             }
             break;
-        /* case ('S'):
+        case ('S'):
             if (down==' '||down=='M')
             {
                 jugador.x=jugador.x+1;
@@ -215,7 +226,18 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
             {
                 k=0;
             }
-            break; */
+            break; 
+        case ('s'):
+            if (down==' '||down=='M')
+            {
+                jugador.x=jugador.x+1;
+                k=1;
+            }
+            else
+            {
+                k=0;
+            }
+            break; 
         case (77):
             if (right==' '||right=='M')
             {
@@ -227,7 +249,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
                 k=0;
             }
             break;
-        /* case ('D'):
+        case ('D'):
             if (right==' '||right=='M')
             {
                 jugador.y=jugador.y+1;
@@ -237,7 +259,18 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
             {
                 k=0;
             }
-            break; */
+            break; 
+        case ('d'):
+            if (right==' '||right=='M')
+            {
+                jugador.y=jugador.y+1;
+                k=1;
+            }
+            else
+            {
+                k=0;
+            }
+            break; 
         case (75):
             if (left==' '||left=='M')
             {
@@ -249,7 +282,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
                 k=0;
             }
             break;
-        /* case ('A'):
+        case ('A'):
             if (left==' '||left=='M')
             {
                 jugador.y=jugador.y-1;
@@ -259,7 +292,18 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
             {
                 k=0;
             }
-            break; */
+            break; 
+        case ('a'):
+            if (left==' '||left=='M')
+            {
+                jugador.y=jugador.y-1;
+                k=1;
+            }
+            else
+            {
+                k=0;
+            }
+            break; 
         default:
             break;
         }
@@ -295,6 +339,8 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         {
             PantallaSeleccionPosicionEditor();
             printf("%ix%i\n", medidas[mapa_jugable].x, medidas[mapa_jugable].y);
+            printf("\n\n                                %c             W  \n", 30);
+            printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n", 17, 31, 16, 162);
             scanf("%i %i", &jugador.x, &jugador.y);
             if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
             {
@@ -312,6 +358,8 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         else
         {
             PantallaSeleccionPosicion();
+            printf("\n\n                                %c             W  \n", 30);
+            printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n", 17, 31, 16, 162);
             scanf("%i %i", &jugador.x, &jugador.y);
             if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
             {
@@ -395,7 +443,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
     {
         system("cls");
         printf("Escoge mapa, presiona enter cuando veas el mapa que quieras\n");
-        printf("Cambia de mapa presionando:\nA -> izquierda\nD -> derecha\n");
+        printf("Cambia de mapa presionando:\nPara moverse a la derecha: 'a', 'A' %c  %c\nPara moverse a la izquierda: 'd', 'D' %c  %c\n", 162, 16, 162, 17);
         printf("Medidas:%ix%i\n", medidas[mapa_mostrado].x, medidas[mapa_mostrado].y);
         for ( i = 0; i < medidas[mapa_mostrado].x; i++)
         {
@@ -421,7 +469,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
             printf("\n");  
         }
         seleccion=getch();
-        if (seleccion=='d'||seleccion=='D')
+        if (seleccion=='d'||seleccion=='D'||seleccion==77)
         {
             if (mapa_mostrado==numero_mapas-1)
             {
@@ -432,7 +480,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
                 mapa_mostrado=mapa_mostrado+1;
             }
         }
-        if (seleccion=='a'||seleccion=='A')
+        if (seleccion=='a'||seleccion=='A'||seleccion==75)
         {
             if (mapa_mostrado==1)
             {
