@@ -9,11 +9,17 @@ void editor()
 {
     FILE *map;
     int i, j, detectar, k=0;
-    char save, editar, pared, mapa[50][50];
+    char save, editar, pared, mapa[50][50], inservible[50][50];
     dosDatos p, medidas;
     p.x=1;
     p.y=1;
-
+    for ( i = 0; i < 50; i++)
+    {
+        for ( j = 0; j < 50; j++)
+        {
+            inservible[i][j]=0;
+        }
+    }
     do {
         pantallaDimensiones();
         scanf("%i %i", &medidas.x, &medidas.y);
@@ -49,8 +55,7 @@ void editor()
 
     do
     {
-        imprimir_lab(mapa,medidas, p);
-        seccionInstrucciones();
+        imprimir_lab(mapa,medidas, p, inservible);
         fflush(stdin);
         pared=getch();
 
@@ -58,8 +63,8 @@ void editor()
             p=mover_cursor(mapa,medidas, p, pared);
         }
 
-        if (pared=='e'||pared=='r'||pared=='t'||pared=='E'||pared=='R'||pared=='T') {
-            editar_lab(mapa, medidas, p, pared);
+        if (pared=='e'||pared=='r'||pared=='t'||pared=='E'||pared=='R'||pared=='T'||pared==13) {
+            p=editar_lab(mapa, medidas, p, pared);
         }
         if (pared=='G'||pared=='g') {
             detectar=detectar_salida(mapa, medidas, p);
@@ -69,7 +74,7 @@ void editor()
             }
             else
             {
-                imprimir_lab(mapa, medidas, p);
+                imprimir_lab(mapa, medidas, p, inservible);
                 printf("\nNo has a%cadido una salida\n", 164);
                 system("pause");
             }
@@ -114,7 +119,7 @@ void editor()
     
 }
 
-void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
+void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char paredes[50][50])
 {
     int i, j;
     system("cls");
@@ -154,28 +159,94 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion)
                 }
                 else
                 {
-                    if (mapa[i][j]=='x')
+                    if (paredes[i][j]=='x')
                     {
-                        printf("\x1b[30m");
+                        printf("\x1b[31m");
                         printf("%c%c", 219, 219);
                         printf("\x1b[0m");
                     }
                     else{
-                        printf("%c ", mapa[i][j]);
+                        if (mapa[i][j]=='x')
+                        {
+                            printf("\x1b[30m");
+                            printf("%c%c", 219, 219);
+                            printf("\x1b[0m");
+                        }
+                        else{
+                            printf("%c ", mapa[i][j]);
+                        }
                     }
                 }
             }
         }
         printf("\n");
     }
+    seccionInstrucciones();
 }
 
-void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
+dosDatos editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int permiso;
+    int i, j, bucle=1, save=0;
+    char nueva_entrada='x', guardar;
+    dosDatos aux, posf;
+    char paredes[50][50];
+    aux.x=posicion.x;
+    aux.y=posicion.y;
+    for ( i = 0; i < medidas.x; i++)
+    {
+        for ( j = 0; j < medidas.y; j++)
+        {
+            paredes[i][j]='a';
+        }
+    }
     if (caso=='T'||caso=='t')
     {
         mapa[posicion.x][posicion.y]='#';
+        return posicion;
+    }
+    if (caso==13)
+    {
+        do
+        {
+            paredes[aux.x][aux.y]='x';
+            nueva_entrada=getch();
+            if (nueva_entrada==80||nueva_entrada==77||nueva_entrada==75||nueva_entrada==72||nueva_entrada=='w'||nueva_entrada=='a'||nueva_entrada=='s'||nueva_entrada=='d'||nueva_entrada=='W'||nueva_entrada=='A'||nueva_entrada=='S'||nueva_entrada=='D')
+            {
+                posicion=mover_cursor(mapa, medidas, posicion, nueva_entrada);
+                paredes[posicion.x][posicion.y]='x';
+                imprimir_lab(mapa, medidas, posicion, paredes);
+                posf.x=posicion.x;
+                posf.y=posicion.y;
+            }
+            if (nueva_entrada==13)
+            {
+                printf("    Guardar cambios:\n    Si(s)\n    No(n)");
+                guardar=getch();
+                if (guardar=='s'||guardar=='S')
+                {
+                    for ( i = 0; i < medidas.x; i++)
+                    {
+                        for ( j = 0; j < medidas.y; j++)
+                        {
+                            if (paredes[i][j]=='x')
+                            {
+                                mapa[i][j]='#';
+                            }
+                        }
+                    }
+                    bucle=0;
+                }
+                if (guardar=='n'||guardar=='N')
+                {
+                    bucle=0;
+                }
+                else{
+
+                }
+            }
+        } while (bucle==1);
+        return posf;   
     }
     if (caso=='e'||caso=='E')
     {
@@ -183,10 +254,12 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
         {
             printf("No se pueden editar las paredes predeterminadas\n");
             system("pause");
+            return posicion;
         }
         else
         {
             mapa[posicion.x][posicion.y]= 'x';
+            return posicion;
         }
     }
     if (caso=='r'||caso=='R')
@@ -195,6 +268,7 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
         {
             printf("No se pueden editar las paredes predeterminadas\n");
             system("pause");
+            return posicion;
         }
         else{
             permiso=detectar_salida(mapa, medidas, posicion);
@@ -203,10 +277,12 @@ void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char cas
                 printf("Ya existe una salida\n");
                 system("pause");
                 mapa[posicion.x][posicion.y]= 'x';
+                return posicion;
             }
             if (permiso==0)
             {
                 mapa[posicion.x][posicion.y]='M';
+                return posicion;
             }   
         }
     }

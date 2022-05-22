@@ -72,7 +72,8 @@ void seccionInstrucciones() {
     printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n\n", 17, 31, 16, 162);
     printf("    Teclas y acciones:\n\n");
     printf("    T - Colocar pared      E - Colocar espacio\n");
-    printf("    R - Colocar meta       G - Guardar\n\n");
+    printf("    R - Colocar meta       G - Guardar\n");
+    printf("    Presiona enter para crear paredes enteras, vuelve a presionarlo para crearlas\n\n");
     printf("    X - Salir del editor\n");
 }
 

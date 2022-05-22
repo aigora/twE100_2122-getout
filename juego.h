@@ -34,9 +34,9 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
 //funcion de muestra de mapa
 void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 //impresion del mapa a editar
-void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion);
+void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char paredes[50][50]);
 //Edicion del laberinto
-void editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
+dosDatos editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
 
 dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso);
 
