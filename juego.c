@@ -150,7 +150,8 @@ void juego(FILE *map)
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
-
+//Funcion de movimiento, esta comprueba los alrededores del jugador. Y con un switch-case decide que es lo que pasa cuando presionas w, a, s, d ó las flechas.
+//Si detecta que en la direccion que te quieres mover hay una pared, no te dejara y podras intentar moverte otra vez hasta que puedas. 
 void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int k=0;
@@ -310,7 +311,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
     } while (k==0);
     mapas[mapa_jugable][jugador.x][jugador.y]='x';
 }
-
+//Funcion que analiza los elementos de la matriz y comprueba si son iguales a "x", si es asi, devolvera los valores i, j a el codigo.
 dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
@@ -328,7 +329,8 @@ dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], i
     }
     return posicion;
 }
-
+//Funcion que deja al jugador escoger una posicion inicial, esta detecta cuando la coordenada escrita coincide con una pared
+//La funcion distingue entre los mapas personalizados y los predeterminados, diciendote las dimensiones de cada mapa en su caso
 void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable)
 {
     dosDatos jugador;
@@ -376,7 +378,8 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         }
     } while (k==0);
 }
-
+//Funcion que recibe la posicion actual del jugador e imprime un area 15x15 alrededor de este.
+//La funcion a su vez detecta cuando el jugador esta cerca de los bordes del mapa y restringe el area imprimida en funcion a eso para que no de error al imprimir el area
 void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     int i, j;
@@ -417,7 +420,7 @@ void imprimir_area(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
         printf("\n");
     }
 }
-
+//Va analizando posicion por posicion en la matriz de mapa para ver cual coincide con la letra 'M', y devuelve los datos de posicion de esta.
 dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos posicion;
@@ -435,6 +438,8 @@ dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], in
     }
     return posicion;
 }
+//Pantalla de seleccion de mapas personalizados, esta permite ver los mapas creados y pasar de uno a otro mediante las flechas o "a", "d".
+//Para seleccionar un mapa, solo tienes que tener el que quieras en la pantalla y seleccionar enter.
 int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas)
 {
     int i, j, bucle=1;

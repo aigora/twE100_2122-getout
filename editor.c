@@ -118,7 +118,9 @@ void editor()
     }
     
 }
-
+//Imprime el mapa teniendo en cuenta la posicion del cursor, el cual el usuario mueve y esta marcado en amarillo, luego el modo de pared rapida tiene en cuenta una matriz del mismo tamaño que el mapa,
+//para detectar que partes han sido marcadas en rojo e imprimirlas. Si la matriz mapa tiene el valor "x", imprime un espacio, si es un "#" imprime una pared, y si la matriz igual a el mapa, es decir paredes, tiene un valor 1
+//imprimira un espacio en rojo
 void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char paredes[50][50])
 {
     int i, j;
@@ -183,7 +185,9 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char p
     }
     seccionInstrucciones();
 }
-
+//Funcion que detecta lo que quieres hacer medinate un switch-case, esta cambia el valor de la matriz de la posicion actual, y devuelve esta.
+//En caso de entrar en pared rapida este guardara las posiciones por las que te muevas en una matriz paredes del mismo tamaño que el mapa.
+//Si tiene valor 1 el mapa imprimira las posiciones en rojo, que al guardar la accion las convertira en paredes solidas cambiando las posiciones en rojo por "#". 
 dosDatos editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int permiso;
@@ -287,7 +291,8 @@ dosDatos editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char
         }
     }
 }
-
+//Detecta la posicion inicial del jugador y la tecla presionada, si esta coincide con w, a, s, d, ó las flechas,
+//y cambiara el valor de i ó j en funcion a lo presionado y devolvera la coordenada modificada para imprimir ese elemento de la matriz en amarillo
 dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, char caso)
 {
     int k=1;
@@ -516,7 +521,7 @@ dosDatos mover_cursor(char mapa[50][50], dosDatos medidas, dosDatos posicion, ch
         }while(k==1);
     return posicion;
 }
-
+//Detecta si ya existe una salida en el mapa y evita que haya mas de dos (esa parte de la funcion esta dentro de editar_lab)
 char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion)
 {
     int i, j;
@@ -532,7 +537,7 @@ char detectar_salida(char mapa[50][50], dosDatos medidas, dosDatos posicion)
     }
     return 0;
 }
-
+//Pregunta si quieres guardar, rompe el bucle del editor y edita una variable para que abra un fichero para guardar el mapa creado, junto a sus dimensiones
 char guardar()
 {
     char aux;
@@ -551,7 +556,7 @@ char guardar()
     } while (loop == 1);
     
 }
-
+//Pregunta si quieres salir sin guardar, acaba con el bucle del editor y hace que la variable save sea 0 para que no se abra el fichero para guardar el mapa.
 char salida() {
     char input;
     int loop = 1;
