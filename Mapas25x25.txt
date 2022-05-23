@@ -21,7 +21,7 @@
 #o#ooooooo#ooo#oo#o#o#oo#
 #o#o#oo###oo###o#oo#oo#o#
 #oo#o#o#oooo#oooooo#o#oo#
-#ooooo#ooooo########o##o#
+#ooooo#ooooo######o#o##o#
 #ooooooooooooooooooooooo#
 #########################
 25 25
