@@ -68,8 +68,6 @@ void pantallaDimensiones() {
 }
 
 void seccionInstrucciones() {
-    printf("\n\n                                %c             W  \n", 30);
-    printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n\n", 17, 31, 16, 162);
     printf("    Teclas y acciones:\n\n");
     printf("    T - Colocar pared      E - Colocar espacio\n");
     printf("    R - Colocar meta       G - Guardar\n");
@@ -77,11 +75,33 @@ void seccionInstrucciones() {
     printf("    X - Salir del editor\n");
 }
 
-void PantallaSeleccionPosicion(){
-    printf("Escribe una posicion de la cual empezar\n");
-    printf("Recuerda las dimensiones de los niveles\nFacil:25x25\nMedio:50x50\nDificil:100x100\n");
+void PantallaSeleccionPosicion(char dificultad) {
+    printf("    Escribe una posicion de la cual empezar:\n");
+    printf("    Recuerda las dimensiones de los niveles\n\n    Dimensiones maximas del modo: ");
+    switch (dificultad) {
+        case 'f': 
+            printf("25 x 25");
+            break;
+        case 'm':
+            printf("50 x 50");
+            break;
+        case 'd':
+            printf("100 x 100");
+            break;
+        
+        default:
+            printf("Ha habido un error");
+            break;
+    }
+    printf("\n\n    Ejemplo: 1 1 (Enter)\n");
 }
+
 void PantallaSeleccionPosicionEditor(){
-    printf("Escribe una posicion de la cual empezar\n");
-    printf("Dimensiones del mapa escogido: ");
+    printf("    Escribe una posicion de la cual empezar\n");
+    printf("    Dimensiones del mapa escogido: ");
+}
+
+void instruccionesMovimiento() {
+    printf("\n\n                                %c             W  \n", 30);
+    printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n\n", 17, 31, 16, 162);
 }

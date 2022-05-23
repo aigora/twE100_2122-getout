@@ -20,9 +20,12 @@ void editor()
             inservible[i][j]=0;
         }
     }
+
     do {
         pantallaDimensiones();
-        scanf("%i %i", &medidas.x, &medidas.y);
+        scanf("%d %d", &medidas.x, &medidas.y);
+        //el while esta para que funcine cunado 
+        while (getchar() != '\n');
         if ((medidas.x>=4&&medidas.x<=50)) {
             if (medidas.y>=4&&medidas.y<=50) {
                 k = 1;
@@ -183,6 +186,7 @@ void imprimir_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char p
         }
         printf("\n");
     }
+    instruccionesMovimiento();
     seccionInstrucciones();
 }
 //Funcion que detecta lo que quieres hacer medinate un switch-case, esta cambia el valor de la matriz de la posicion actual, y devuelve esta.

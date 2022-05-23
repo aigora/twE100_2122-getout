@@ -11,7 +11,7 @@ void Dificil();
 void Personalizado();
 
 //el juego en si
-void juego(FILE *map);
+void juego(FILE *map, char dificultad);
 
 typedef struct 
 {
@@ -23,9 +23,9 @@ dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], i
 
 dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 
-void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable);
+void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable, char dificultad);
 
-void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
+void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pista, int *quit);
 //Dice pistas para saber donde esta la meta en cada movimiento
 void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable);
 //imprimir los mapas personalizaddos para escoger

@@ -18,7 +18,8 @@ void Facil() {
         printf("Abierto correctamente.\n");
     }
 
-    juego(map);
+    char dificultad = 'f';
+    juego(map, dificultad);
 
     fclose(map);
 }
@@ -34,7 +35,8 @@ void Medio() {
         printf("Abierto correctamente.\n");
     }
 
-    juego(map);
+    char dificultad = 'm';
+    juego(map, dificultad);
 
     fclose(map);
 }
@@ -50,7 +52,8 @@ void Dificil() {
         printf("Abierto correctamente.\n");
     }
 
-    juego(map);
+    char dificultad = 'd';
+    juego(map, dificultad);
 
     fclose(map);
 }
@@ -66,15 +69,20 @@ void Personalizado() {
         printf("Abierto correctamente.\n");
     }
 
-    juego(map);
+
+    char dificultad = 'p';
+    juego(map, dificultad);
 
     fclose(map);
 }
 
-void juego(FILE *map) 
-{
+void juego(FILE *map, char dificultad) {
     //[numero de laberinto][fila del laberinto][columna del laberinto]
     char mapas[30][200][200];
+    int quit = 0;
+
+    //variable para pistas
+    char activacionPista;
 
     //utilizaremos la i para el numero de laberinto
     //la j para la fila del laberinto y la k para la columna del laberinto
@@ -139,20 +147,51 @@ void juego(FILE *map)
     dosDatos exit;
     system("cls");
     //Funcion para definir cordenadas de jugador
-    decidir_posicion(mapas, medidas, mapa_jugable);
+    decidir_posicion(mapas, medidas, mapa_jugable, dificultad);
     exit=analizar_posicion_salida(mapas, medidas, mapa_jugable);
     imprimir_area(mapas, medidas, mapa_jugable);
     do
     {
-        mov(mapas, medidas, mapa_jugable);
+        mov(mapas, medidas, mapa_jugable, &activacionPista, &quit);
+        if (quit == 1) {
+            printf("    Esta seguro de que quiere salir?\n");
+            printf("    S - Si\n    N - No\n");
+            char realquit;
+            int comprobante = 1;
+            do {
+                realquit = getch();
+                switch (realquit) {
+                    case 's':
+                        return;
+                        break;
+                    case 'S':
+                        return;
+                        break;
+                    case 'n':
+                        quit = 0;
+                        comprobante = 0;
+                        break;
+                    case 'N':
+                        quit = 0;
+                        comprobante = 0;
+                        break;
+                    
+                    default:
+                        break;
+                    
+                }
+            } while (comprobante == 1);
+        }
         imprimir_area(mapas, medidas, mapa_jugable);
-        Pista_meta(mapas, medidas, mapa_jugable);
+        if (activacionPista == 1) {
+            Pista_meta(mapas, medidas, mapa_jugable);
+        }
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
 }
 //Funcion de movimiento, esta comprueba los alrededores del jugador. Y con un switch-case decide que es lo que pasa cuando presionas w, a, s, d ó las flechas.
 //Si detecta que en la direccion que te quieres mover hay una pared, no te dejara y podras intentar moverte otra vez hasta que puedas. 
-void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
+void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pista, char *quit)
 {
     int k=0;
     dosDatos jugador;
@@ -305,6 +344,35 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
                 k=0;
             }
             break; 
+
+        //variables para que se muestren las pistas o no
+        case 'r':
+            if (*pista == 0) {
+                *pista = 1;
+            } else { 
+                *pista = 0;
+            }
+            k = 1;
+            break;
+        case 'R':
+            if (*pista == 0) {
+                *pista = 1;
+            } else {
+                *pista = 0;
+            }
+            k = 1;
+            break;
+
+        //variables para salir del juego 
+        case 'x':
+            *quit = 1;
+            k = 1;
+            break;
+        case 'X':
+            *quit = 1;
+            k = 1;
+            break;
+
         default:
             break;
         }
@@ -331,7 +399,7 @@ dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], i
 }
 //Funcion que deja al jugador escoger una posicion inicial, esta detecta cuando la coordenada escrita coincide con una pared
 //La funcion distingue entre los mapas personalizados y los predeterminados, diciendote las dimensiones de cada mapa en su caso
-void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable)
+void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugable, char dificultad)
 {
     dosDatos jugador;
     int k=0;
@@ -341,10 +409,12 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         {
             PantallaSeleccionPosicionEditor();
             printf("%ix%i\n", medidas[mapa_jugable].x, medidas[mapa_jugable].y);
-            printf("\n\n                                %c             W  \n", 30);
-            printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n", 17, 31, 16, 162);
+            instruccionesMovimiento();
+            printf("    Posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
-            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
+            //el while esta para que funcine cunado 
+            while (getchar() != '\n');
+            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&& mapas[mapa_jugable][jugador.x][jugador.y]!='M')
             {
                 mapas[mapa_jugable][jugador.x][jugador.y]='x';
                 k=1;
@@ -359,11 +429,13 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         }
         else
         {
-            PantallaSeleccionPosicion();
-            printf("\n\n                                %c             W  \n", 30);
-            printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n", 17, 31, 16, 162);
+            PantallaSeleccionPosicion(dificultad);
+            instruccionesMovimiento();
+            printf("    Posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
-            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&&mapas[mapa_jugable][jugador.x][jugador.y]!='M')
+            //el while esta para que funcine cunado 
+            while (getchar() != '\n');
+            if (mapas[mapa_jugable][jugador.x][jugador.y]==' '&& mapas[mapa_jugable][jugador.x][jugador.y]!='M')
             {
                 mapas[mapa_jugable][jugador.x][jugador.y]='x';
                 k=1;
@@ -504,6 +576,7 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
     } while (bucle==1);
     return mapa_mostrado;
 }
+
 void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 {
     dosDatos salida, jugador;

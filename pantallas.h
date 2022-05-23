@@ -25,5 +25,11 @@ void pantallaInstrucciones();
 //Seccion con instrucciones de la parte de debajo del editor de mapas
 void seccionInstrucciones();
 
+//Pantalla de seleccion de posicion para modos normales
+void PantallaSeleccionPosicion(char dificultad);
+
 //Pantalla de seleccion de posicion para el editor
 void PantallaSeleccionPosicionEditor();
+
+//Contiene las instrucciones de movimiento
+void instruccionesMovimiento();
