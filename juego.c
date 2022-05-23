@@ -81,6 +81,9 @@ int juego(FILE *map, char dificultad) {
     char mapas[30][200][200];
     int quit = 0;
 
+    //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
+    int num_paso[1]={0}; 
+
     //variable para pistas
     char activacionPista;
 
@@ -153,6 +156,7 @@ int juego(FILE *map, char dificultad) {
     do
     {
         mov(mapas, medidas, mapa_jugable, &activacionPista, &quit);
+        num_paso[0]++;
         if (quit == 1) {
             printf("    Esta seguro de que quiere salir?\n");
             printf("    S - Si\n    N - No\n");
@@ -186,6 +190,7 @@ int juego(FILE *map, char dificultad) {
         if (activacionPista == 1) {
             Pista_meta(mapas, medidas, mapa_jugable);
         }
+        guardar_numero_pasos(num_paso[0]);
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
     return 0;
@@ -195,8 +200,6 @@ int juego(FILE *map, char dificultad) {
 void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pista, int *quit)
 {
     int k=0;
-    //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
-    int pasos_realizados=50; 
     dosDatos jugador;
     char up, down, left, right;
     char input;
@@ -218,7 +221,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case(72):
             if (up==' '||up=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
             }
@@ -230,7 +232,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('W'):
             if (up==' '||up=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
             }
@@ -242,7 +243,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('w'):
             if (up==' '||up=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
             }
@@ -254,7 +254,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (80):
             if (down==' '||down=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
             }
@@ -266,7 +265,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('S'):
             if (down==' '||down=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
             }
@@ -278,7 +276,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('s'):
             if (down==' '||down=='M')
             {
-                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
             }
@@ -290,7 +287,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (77):
             if (right==' '||right=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
 
@@ -303,7 +299,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('D'):
             if (right==' '||right=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
             }
@@ -315,7 +310,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('d'):
             if (right==' '||right=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
             }
@@ -327,7 +321,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (75):
             if (left==' '||left=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
             }
@@ -339,7 +332,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('A'):
             if (left==' '||left=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
             }
@@ -351,7 +343,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('a'):
             if (left==' '||left=='M')
             {
-                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
             }
@@ -393,7 +384,6 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
             break;
         }
     } while (k==0);
-    guardar_numero_pasos(pasos_realizados);
     mapas[mapa_jugable][jugador.x][jugador.y]='x';
 }
 //Funcion que analiza los elementos de la matriz y comprueba si son iguales a "x", si es asi, devolvera los valores i, j a el codigo.
