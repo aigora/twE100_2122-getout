@@ -196,7 +196,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
 {
     int k=0;
     //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
-    int pasos_realizados[]={0}; 
+    int pasos_realizados=50; 
     dosDatos jugador;
     char up, down, left, right;
     char input;
@@ -218,9 +218,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case(72):
             if (up==' '||up=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -230,9 +230,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('W'):
             if (up==' '||up=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -242,9 +242,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('w'):
             if (up==' '||up=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -254,9 +254,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (80):
             if (down==' '||down=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -266,9 +266,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('S'):
             if (down==' '||down=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -278,9 +278,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('s'):
             if (down==' '||down=='M')
             {
+                pasos_realizados+=1;
                 jugador.x=jugador.x+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -290,9 +290,10 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (77):
             if (right==' '||right=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
+
             }
             else
             {
@@ -302,9 +303,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('D'):
             if (right==' '||right=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -314,9 +315,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('d'):
             if (right==' '||right=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y+1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -326,9 +327,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case (75):
             if (left==' '||left=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -338,9 +339,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('A'):
             if (left==' '||left=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -350,9 +351,9 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case ('a'):
             if (left==' '||left=='M')
             {
+                pasos_realizados+=1;
                 jugador.y=jugador.y-1;
                 k=1;
-                cuenta_pasos(pasos_realizados[0]);
             }
             else
             {
@@ -382,20 +383,18 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
         case 'x':
             *quit = 1;
             k = 1;
-            pasos_realizados[0]=0;
             break;
         case 'X':
             *quit = 1;
             k = 1;
-            pasos_realizados[0]=0;
             break;
 
         default:
             break;
         }
     } while (k==0);
+    guardar_numero_pasos(pasos_realizados);
     mapas[mapa_jugable][jugador.x][jugador.y]='x';
-    guardar_numero_pasos(pasos_realizados[0]);
 }
 //Funcion que analiza los elementos de la matriz y comprueba si son iguales a "x", si es asi, devolvera los valores i, j a el codigo.
 dosDatos analizar_posicion_jugador(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
@@ -634,11 +633,7 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
     }
 }
 
-//Cuenta_pasos, enumera los pasos realizados en forma de entero. Guardar_numero_pasos crea fichero y almacena este dato en un archivo txt.
-void cuenta_pasos(int pasos[0])
-{
-    pasos[0]++;
-}
+//Guardar_numero_pasos crea fichero y almacena este dato en un archivo txt.
 void guardar_numero_pasos(int num_pasos)
 {
     //Se crea archivo txt.
@@ -651,8 +646,7 @@ void guardar_numero_pasos(int num_pasos)
     }
     else{
         fprintf(pf, "%i", num_pasos);
-        return 0;
+        //Nunca se olvida cerrar el archivo.
+        fclose (pf);
     }
-    //Nunca se olvida cerrar el archivo.
-    fclose (pf);
 }

@@ -44,7 +44,7 @@ void pantallaDificultad() {
 void pantallaFinal() {
     int n = numero_pasos_guardado();
     printf("##########################################################\n\n");
-    printf("     Ha realizado %i pasos en esta partida\n", n);
+    printf("     Ha realizado %i pasos en la ultima partida\n", n);
     printf("     Gracias por jugar, pulse cualquier\n");
     printf("     tecla para salir...\n\n");
     printf("     Get Out!\n\n");
@@ -157,10 +157,9 @@ int numero_pasos_guardado() {
         return -1;
     }
     else{
-        fscanf(pf, "%i", &num_pasos);
-        return 0;
+        fscanf(pf, "%i", &num_pasos);    
+        //Nunca se olvida cerrar el archivo.
+        fclose (pf);
+        return num_pasos;
     }
-    //Nunca se olvida cerrar el archivo.
-    fclose (pf);
-    return num_pasos;
 }
