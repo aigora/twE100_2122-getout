@@ -81,6 +81,9 @@ int juego(FILE *map, char dificultad) {
     char mapas[30][200][200];
     int quit = 0;
 
+    //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
+    int num_paso[1]={0}; 
+
     //variable para pistas
     char activacionPista;
 
@@ -153,6 +156,7 @@ int juego(FILE *map, char dificultad) {
     do
     {
         mov(mapas, medidas, mapa_jugable, &activacionPista, &quit);
+        num_paso[0]++;
         if (quit == 1) {
             printf("    Esta seguro de que quiere salir?\n");
             printf("    S - Si\n    N - No\n");
@@ -186,6 +190,7 @@ int juego(FILE *map, char dificultad) {
         if (activacionPista == 1) {
             Pista_meta(mapas, medidas, mapa_jugable);
         }
+        guardar_numero_pasos(num_paso[0]);
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
     return 0;
@@ -284,6 +289,7 @@ void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pis
             {
                 jugador.y=jugador.y+1;
                 k=1;
+
             }
             else
             {
@@ -614,5 +620,23 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
         {
             printf("-abajo\n");
         }        
+    }
+}
+
+//Guardar_numero_pasos crea fichero y almacena este dato en un archivo txt.
+void guardar_numero_pasos(int num_pasos)
+{
+    //Se crea archivo txt.
+    FILE *pf;
+    pf = fopen("numero_total_paso.txt", "w");
+    //Comprobacion por si hay error al abrir archivo.
+    if (pf == NULL){
+        printf("Error al abrir el fichero.\n");
+        return -1;
+    }
+    else{
+        fprintf(pf, "%i", num_pasos);
+        //Nunca se olvida cerrar el archivo.
+        fclose (pf);
     }
 }
