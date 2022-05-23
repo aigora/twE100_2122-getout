@@ -191,7 +191,7 @@ void juego(FILE *map, char dificultad) {
 }
 //Funcion de movimiento, esta comprueba los alrededores del jugador. Y con un switch-case decide que es lo que pasa cuando presionas w, a, s, d ó las flechas.
 //Si detecta que en la direccion que te quieres mover hay una pared, no te dejara y podras intentar moverte otra vez hasta que puedas. 
-void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pista, char *quit)
+void mov(char mapas[][200][200], dosDatos medidas[], int mapa_jugable, char *pista, int *quit)
 {
     int k=0;
     dosDatos jugador;
