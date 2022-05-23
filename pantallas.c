@@ -42,7 +42,9 @@ void pantallaDificultad() {
 }
 
 void pantallaFinal() {
+    int n = numero_pasos_guardado();
     printf("##########################################################\n\n");
+    printf("     Ha realizado %i pasos en esta partida\n", n);
     printf("     Gracias por jugar, pulse cualquier\n");
     printf("     tecla para salir...\n\n");
     printf("     Get Out!\n\n");
@@ -143,4 +145,22 @@ void PantallaSeleccionPosicionEditor(){
 void instruccionesMovimiento() {
     printf("\n\n                                %c             W  \n", 30);
     printf("    Muevase con las teclas:   %c %c %c   (%c)   A S D  \n\n", 17, 31, 16, 162);
+}
+
+int numero_pasos_guardado() {   
+    int num_pasos=0;
+    FILE *pf;
+    pf = fopen("numero_total_paso.txt", "r");
+    //Comprobacion por si hay error al abrir archivo.
+    if (pf == NULL){
+        printf("Error al abrir el fichero.\n");
+        return -1;
+    }
+    else{
+        fscanf(pf, "%i", &num_pasos);
+        return 0;
+    }
+    //Nunca se olvida cerrar el archivo.
+    fclose (pf);
+    return num_pasos;
 }
