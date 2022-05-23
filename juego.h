@@ -1,17 +1,17 @@
 //opcion facil
-void Facil();
+void Facil(int *exito);
 
 //opcion medio
-void Medio();
+void Medio(int *exito);
 
 //opcion dificil
-void Dificil();
+void Dificil(int *exito);
 
 //opcion personalizado
-void Personalizado();
+void Personalizado(int *exito);
 
 //el juego en si
-void juego(FILE *map, char dificultad);
+int juego(FILE *map, char dificultad);
 
 typedef struct 
 {

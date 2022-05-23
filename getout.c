@@ -9,7 +9,7 @@ void getout()
     pantallaInicio();
     getch(); //loophole no preguntes
 
-    int input;
+    int input, exito = 1;
     char character;
     //infinite_loop:
 
@@ -58,22 +58,22 @@ void getout()
         switch (input) {
             case '1': 
                 //lleva al modo facil
-                Facil();
+                Facil(&exito);
                 break;
 
             case '2': 
                 //lleva al modo medio
-                Medio();
+                Medio(&exito);
                 break;
             
             case '3': 
                 //lleva al modo dificil
-                Dificil();
+                Dificil(&exito);
                 break;
 
             case '4':
                 //lleva al modo personalizado
-                Personalizado();
+                Personalizado(&exito);
                 break;
 
             case '5':
@@ -89,33 +89,36 @@ void getout()
         }
 
         meta:
-        system("cls");
-        pantallaMeta();
-        character = getch();
-        switch (character) {
-            case 's':
-                //aqui iria para guardar la puntuacion
-                goto meta;
-                break;
+        if (exito == 0) {
+            system("cls");
+            pantallaMeta();
+            character = getch();
+            switch (character) {
+                case 's':
+                    //aqui iria para guardar la puntuacion
+                    goto meta;
+                    break;
 
-            case 'S':
-                //igual que la minuscula
-                goto meta;
-                break;
+                case 'S':
+                    //igual que la minuscula
+                    goto meta;
+                    break;
 
-            case 'n':
-                goto seleccionSeleccion;
-                break;
+                case 'n':
+                    goto seleccionSeleccion;
+                    break;
 
-            case 'N':
-                goto seleccionSeleccion;
-                break;
+                case 'N':
+                    goto seleccionSeleccion;
+                    break;
 
-            default:
-                system("cls");
-                goto meta;
-                break;
+                default:
+                    system("cls");
+                    goto meta;
+                    break;
+            }
+        } else {
+            goto seleccionSeleccion;
         }
-
     //goto infinite_loop;
 }

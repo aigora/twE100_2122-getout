@@ -6,7 +6,7 @@
 #include "juego.h"
 #include "pantallas.h"
 
-void Facil() {
+void Facil(int *exito) {
     //apertura del fichero:
     FILE *map;
     map = fopen("Mapas25x25.txt", "r");
@@ -19,12 +19,12 @@ void Facil() {
     }
 
     char dificultad = 'f';
-    juego(map, dificultad);
+    *exito = juego(map, dificultad);
 
     fclose(map);
 }
 
-void Medio() {
+void Medio(int *exito) {
     FILE *map;
     map = fopen("Mapas50x50.txt", "r");
     //nos dice el estado del mapa:
@@ -36,12 +36,12 @@ void Medio() {
     }
 
     char dificultad = 'm';
-    juego(map, dificultad);
+    *exito = juego(map, dificultad);
 
     fclose(map);
 }
 
-void Dificil() {
+void Dificil(int *exito) {
     FILE *map;
     map = fopen("Mapas100x100.txt", "r");
     //nos dice el estado del mapa:
@@ -53,12 +53,12 @@ void Dificil() {
     }
 
     char dificultad = 'd';
-    juego(map, dificultad);
+    *exito = juego(map, dificultad);
 
     fclose(map);
 }
 
-void Personalizado() {
+void Personalizado(int *exito) {
     FILE *map;
     map = fopen("Niveles_editor.txt", "r");
     //nos dice el estado del mapa:
@@ -71,12 +71,12 @@ void Personalizado() {
 
 
     char dificultad = 'p';
-    juego(map, dificultad);
+    *exito = juego(map, dificultad);
 
     fclose(map);
 }
 
-void juego(FILE *map, char dificultad) {
+int juego(FILE *map, char dificultad) {
     //[numero de laberinto][fila del laberinto][columna del laberinto]
     char mapas[30][200][200];
     int quit = 0;
@@ -162,10 +162,10 @@ void juego(FILE *map, char dificultad) {
                 realquit = getch();
                 switch (realquit) {
                     case 's':
-                        return;
+                        return 1;
                         break;
                     case 'S':
-                        return;
+                        return 1;
                         break;
                     case 'n':
                         quit = 0;
@@ -188,6 +188,7 @@ void juego(FILE *map, char dificultad) {
         }
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     system("cls");
+    return 0;
 }
 //Funcion de movimiento, esta comprueba los alrededores del jugador. Y con un switch-case decide que es lo que pasa cuando presionas w, a, s, d ó las flechas.
 //Si detecta que en la direccion que te quieres mover hay una pared, no te dejara y podras intentar moverte otra vez hasta que puedas. 
