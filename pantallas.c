@@ -159,5 +159,4 @@ void boceto_randon() {
         break;
     }
     fclose(pf);
-
-}
+} 

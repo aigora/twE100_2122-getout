@@ -420,7 +420,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
             PantallaSeleccionPosicionEditor();
             printf("%ix%i\n", medidas[mapa_jugable].x, medidas[mapa_jugable].y);
             instruccionesMovimiento();
-            printf("    Posicion en la que quieres aparecer: ");
+            printf("   Introduzca la posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
             //el while esta para que funcine cunado 
             while (getchar() != '\n');
@@ -432,7 +432,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
             else
             {
                 k=0;
-                printf("Si no se borra este comando es porque la posicion coincide con una pared, por favor ingrese otra cordenada\n");
+                printf("Hay una pared en la coordenada introducida\nPor favor de a enter e introduzca unas nuevas...\n");
                 system("pause");
                 system("cls");
             }
@@ -441,7 +441,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         {
             PantallaSeleccionPosicion(dificultad);
             instruccionesMovimiento();
-            printf("    Posicion en la que quieres aparecer: ");
+            printf("    Introduzca la posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
             //el while esta para que funcine cunado 
             while (getchar() != '\n');
@@ -453,7 +453,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
             else
             {
                 k=0;
-                printf("Si no se borra este comando es porque la posicion coincide con una pared, por favor ingrese otra cordenada\n");
+                printf("Hay una pared en la coordenada introducida\nPor favor de a enter e introduzca unas nuevas...\n");
                 system("pause");
                 system("cls");
             }

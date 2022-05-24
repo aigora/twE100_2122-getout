@@ -3,15 +3,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "historial.h"
+#include "juego.h"
+#include "pantallas.h"
+
 void getout()
 {
     system("cls");
     pantallaInicio();
     getch(); //loophole no preguntes
-    FILE *historial;
     int input, exito = 1, num_paso = 0;
     int *movimientos = &num_paso;
-    char character, resultado;
+    char character;
     //infinite_loop:
 
         seleccionSeleccion:
@@ -54,33 +57,12 @@ void getout()
                 goto seleccionSeleccion;             
                 break;
         }
+
         resultadosLB:
-        {
-        system("cls");
-        historial=fopen("historial.txt", "r");
-        if (historial==NULL)
-        {
-            printf("No se pudo abrir el fichero\n");
-            return -1;
-        }
-        else
-        {
-            printf("#####################################################################################\n\n\t");
-            while (!feof (historial)) {
-            resultado = getc(historial);
-            printf ("%c", resultado);
-            if (resultado=='\n')
-            {
-                printf("\n\t");
-            }
-            }
-            printf("\n");
-            printf("#####################################################################################\n");
-        }
-        fclose(historial);
-        system("pause");
+        verHistorial();
         goto seleccionSeleccion;
-        }
+        
+
         seleccionDificultad:
         system("cls");
         pantallaDificultad();
