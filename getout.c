@@ -8,9 +8,10 @@ void getout()
     system("cls");
     pantallaInicio();
     getch(); //loophole no preguntes
-
-    int input, exito = 1;
-    char character;
+    FILE *historial;
+    int input, exito = 1, num_paso = 0, i;
+    int *movimientos = &num_paso;
+    char character, resultado;
     //infinite_loop:
 
         seleccionSeleccion:
@@ -27,7 +28,9 @@ void getout()
             case '2':
                 //llevaria a la pantalla de ver el historial
                 system("cls");
-                goto seleccionSeleccion;                
+                goto resultadosLB;
+                system("pause");
+                goto seleccionSeleccion;             
                 break;
 
             case '3':
@@ -51,6 +54,26 @@ void getout()
                 goto seleccionSeleccion;             
                 break;
         }
+        resultadosLB:
+        {
+        system("cls");
+        historial=fopen("numero_total_paso.txt", "r");
+        if (historial==NULL)
+        {
+            printf("No se pudo abrir el fichero\n");
+            return -1;
+        }
+        else
+        {
+            while (!feof (historial)) {
+            resultado = getc (historial);
+            printf ("%c", resultado);
+            }
+        }
+        fclose(historial);
+        system("pause");
+        goto seleccionSeleccion;
+        }
         seleccionDificultad:
         system("cls");
         pantallaDificultad();
@@ -58,22 +81,22 @@ void getout()
         switch (input) {
             case '1': 
                 //lleva al modo facil
-                Facil(&exito);
+                Facil(&exito, movimientos);
                 break;
 
             case '2': 
                 //lleva al modo medio
-                Medio(&exito);
+                Medio(&exito, movimientos);
                 break;
             
             case '3': 
                 //lleva al modo dificil
-                Dificil(&exito);
+                Dificil(&exito, movimientos);
                 break;
 
             case '4':
                 //lleva al modo personalizado
-                Personalizado(&exito);
+                Personalizado(&exito, movimientos);
                 break;
 
             case '5':
@@ -95,15 +118,16 @@ void getout()
             character = getch();
             switch (character) {
                 case 's':
-                    //aqui iria para guardar la puntuacion
-                    goto meta;
+                    guardar_numero_pasos(movimientos);
+                    goto seleccionSeleccion;
                     break;
 
                 case 'S':
                     //igual que la minuscula
-                    goto meta;
+                    guardar_numero_pasos(movimientos);
+                    goto seleccionSeleccion;
                     break;
-
+                    
                 case 'n':
                     goto seleccionSeleccion;
                     break;

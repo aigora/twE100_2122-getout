@@ -1,17 +1,17 @@
 //opcion facil
-void Facil(int *exito);
+void Facil(int *exito, int *movimientos);
 
 //opcion medio
-void Medio(int *exito);
+void Medio(int *exito, int *movimientos);
 
 //opcion dificil
-void Dificil(int *exito);
+void Dificil(int *exito, int *movimientos);
 
 //opcion personalizado
-void Personalizado(int *exito);
+void Personalizado(int *exito, int *movimientos);
 
 //el juego en si
-int juego(FILE *map, char dificultad);
+int juego(FILE *map, char dificultad, int *movimientos);
 
 typedef struct 
 {
@@ -52,4 +52,4 @@ char salida();
 void editor();
 
 //Abre fichero y almacena pasos utilizados en un archivo txt.
-void guardar_numero_pasos(int num_pasos);
+void guardar_numero_pasos(int *num_pasos);

@@ -6,7 +6,7 @@
 #include "juego.h"
 #include "pantallas.h"
 
-void Facil(int *exito) {
+void Facil(int *exito, int *movimientos) {
     //apertura del fichero:
     FILE *map;
     map = fopen("Mapas25x25.txt", "r");
@@ -19,12 +19,12 @@ void Facil(int *exito) {
     }
 
     char dificultad = 'f';
-    *exito = juego(map, dificultad);
+    *exito = juego(map, dificultad, movimientos);
 
     fclose(map);
 }
 
-void Medio(int *exito) {
+void Medio(int *exito, int *movimientos) {
     FILE *map;
     map = fopen("Mapas50x50.txt", "r");
     //nos dice el estado del mapa:
@@ -36,12 +36,12 @@ void Medio(int *exito) {
     }
 
     char dificultad = 'm';
-    *exito = juego(map, dificultad);
+    *exito = juego(map, dificultad, movimientos);
 
     fclose(map);
 }
 
-void Dificil(int *exito) {
+void Dificil(int *exito, int *movimientos) {
     FILE *map;
     map = fopen("Mapas100x100.txt", "r");
     //nos dice el estado del mapa:
@@ -53,12 +53,12 @@ void Dificil(int *exito) {
     }
 
     char dificultad = 'd';
-    *exito = juego(map, dificultad);
+    *exito = juego(map, dificultad, movimientos);
 
     fclose(map);
 }
 
-void Personalizado(int *exito) {
+void Personalizado(int *exito, int *movimientos) {
     FILE *map;
     map = fopen("Niveles_editor.txt", "r");
     //nos dice el estado del mapa:
@@ -71,18 +71,18 @@ void Personalizado(int *exito) {
 
 
     char dificultad = 'p';
-    *exito = juego(map, dificultad);
+    *exito = juego(map, dificultad, movimientos);
 
     fclose(map);
 }
 
-int juego(FILE *map, char dificultad) {
+int juego(FILE *map, char dificultad, int *movimientos) {
     //[numero de laberinto][fila del laberinto][columna del laberinto]
     char mapas[30][200][200];
     int quit = 0;
 
     //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
-    int num_paso[1]={0}; 
+    int num_paso=0; 
 
     //variable para pistas
     char activacionPista;
@@ -156,7 +156,7 @@ int juego(FILE *map, char dificultad) {
     do
     {
         mov(mapas, medidas, mapa_jugable, &activacionPista, &quit);
-        num_paso[0]++;
+        num_paso++;
         if (quit == 1) {
             printf("    Esta seguro de que quiere salir?\n");
             printf("    S - Si\n    N - No\n");
@@ -190,8 +190,8 @@ int juego(FILE *map, char dificultad) {
         if (activacionPista == 1) {
             Pista_meta(mapas, medidas, mapa_jugable);
         }
-        guardar_numero_pasos(num_paso[0]);
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
+    *movimientos=num_paso;
     system("cls");
     return 0;
 }
@@ -624,18 +624,24 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 }
 
 //Guardar_numero_pasos crea fichero y almacena este dato en un archivo txt.
-void guardar_numero_pasos(int num_pasos)
+void guardar_numero_pasos(int *num_pasos)
 {
     //Se crea archivo txt.
     FILE *pf;
-    pf = fopen("numero_total_paso.txt", "w");
+    char nombre[20], apellidos[20];
+    system("cls");
+    printf("Escribe tu nombre\n");
+    scanf("%s", nombre);
+    printf("Escribe tu apellido(solo 1)\n");
+    scanf("%s", apellidos);
+    pf = fopen("numero_total_paso.txt", "a");
     //Comprobacion por si hay error al abrir archivo.
     if (pf == NULL){
         printf("Error al abrir el fichero.\n");
         return -1;
     }
     else{
-        fprintf(pf, "%i", num_pasos);
+        fprintf(pf, "%s %s\nNumero de movimientos realizados:%i\n",nombre, apellidos, *num_pasos);
         //Nunca se olvida cerrar el archivo.
         fclose (pf);
     }
