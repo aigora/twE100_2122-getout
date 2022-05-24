@@ -1,60 +1,58 @@
-46 58
-oooooooooooooooooooooooooooooooooooooooooooooo
-ooooooooooooo###oooooooooooooooooooooooooooooo
-oooooooooooo#OOO##########oooooooooooooooooooo
-ooooooooooo#OOOOOOOOOOOOOO#ooooooooooooooooooo
-ooooooooooo#OoooooooooOooOO##ooooooooooooooooo
-oooooooooo#OoooooooooOoOOoOOO#oooooooooooooooo
-ooooooooo#OooooooooooOoOOoOoO#oooooooooooooooo
-oooooooo#OoooooooooooOoOOoOooO#ooooooooooooooo
-oooooooo#OooooooooooooOoOoOooO#ooooooooooooooo
-ooooooo#OO#oooo#oooooooOoOooooO#oooooooooooooo
-ooooooo#OOOooo#OOOOoooooooooooO#oooooooooooooo
-ooooooo#OOooooOOOOooooooooooooO#oooooooooooooo
-oooooo#OoooooooooooooooooooooooO#ooooooooooooo
-ooooo#OooooooooooooooooooooooooO#ooooooooooooo
-oooo#OOOOoooooooooooooooooooooooO#oooooooooooo
-oooo#OOOOoo#o#oooooooooooooooooooO##oooooooooo
-oooo#OOOOo#o#oOOooooooooooooooooooOO#ooooooooo
-oooo#OoOooo#oOOOooooooooooooooooooooO#oooooooo
-ooooo#OOOOOOOOoooooooooooooooOoooooooO#ooooooo
-oooooo####OoooooooooooooooooOooooooooO#ooooooo
-oooooooooo#OoooooooooooooooOoooooooooOO#oooooo
-oooooooooo#OoooooooooooooOOooooooooooOoO#ooooo
-oooooooooo#OooooooooooooOoooooooooooOooO#ooooo
-oooooooooo#OooooooooooooooooooooooooOoooO#oooo
-oooooooooo#OoooooooooooooooooooooooOooooOO#ooo
-oooooooooo#OooooooooooooooooooooooOoooooOoO#oo
-oooooooooo#OoooooooooooooooooooooOoooooOooO#oo
-oooooooooo#OoooooooooooooooooooooooooOOooooO#o
-oooooooooo#OooooooooooooooooooooooooOOoooooO#o
-oooooooooo#OooooooooooooooooooooooooOooooooO#o
-oooooooooo#OooooooooooooooooooooooooOooooooO#o
-oooooooooo#OooooooooooooooooooooooOooooooooO#o
-ooooooooooo#OoooooooooooooooooooooOooooooooO#o
-ooooooooooo#OooooooooooooooooooooOoooooooooO#o
-ooooooooooo#OooooooooooooooooooooOoooooooooO#o
-ooooooooooo#OoooooooooooooooooooOooooooooooO#o
-ooooooooooo#OooooooooOooooooooooOooooooooooO#o
-oooooooooo##OooOooooooOooooooooOooooooooooO#oo
-oooooo####OOOoooOoooooOoooooooOoooooooooooO#oo
-ooooo#OOOOooOoooOOoooooOooooooOoooooooooooO#oo
-oooo#OooooooOooooOoooooOooooooOooooooooooO#ooo
-ooo#OooooooOOooooOOooooOooooooOooooooooooO#ooo
-ooo#OoooOOOOOoooOooOooooOoooooOoooooooooO#oooo
-oooo#OOO###OooooOoOOOOooOoooooOoooooooooO#oooo
-ooooo######OooooOoooooooOooooOoooooooooO#ooooo
-oooo#OOOOOOooooOooooooooOooooOooooooooO#oooooo
-ooo#OooooOoooooOooooooooOooooOoooooooO#ooooooo
-oo#OooooOoooooOoooooooooOooooOooooooO#oooooooo
-o#OOOooOoooooOOOOoooooooOooooOoooooO#ooooooooo
-o#OooOOoooooO####OOOooooOooooOooooO#oooooooooo
-oo#OOooOoooO#oooo###OOOoOoooOoooOO#ooooooooooo
-ooo#OoOoooO#oooooooo###OOoooOOOO##oooooooooooo
-oooo#OOOOO#oooooooooooo#OoooO###oooooooooooooo
-ooooo#####oooooooooooo#OooooO#oooooooooooooooo
-oooooooooooooooooooooo#OooooO#oooooooooooooooo
-oooooooooooooooooooooo#OOoOoO#oooooooooooooooo
-ooooooooooooooooooooooo#OOOO#ooooooooooooooooo
-oooooooooooooooooooooooo####oooooooooooooooooo
-oooooooooooooooooooooooooooooooooooooooooooooo
+                                                                                                                                                      
+                                                                                                                                                      
+                                                     /((#/,                                                                                           
+                                                    /(/(((/((((///(((((((((((///**,..                                                                 
+                                                   ,(/((((((((((((((((###%%####(((((((%(.                                                             
+                                                 *///((#((((((((((((((###(%%%(((####((#%%%(,                                                          
+                                               *****/(####(((((((((((((##((((((((#%##((#%%%##,                                                        
+                                             .(/**//((((((////((((#((((####(((((#((#(//#%&%%##(,                                                      
+                                             /##/*//(((///(((/*////((#######(((#%####((#%&%%####*                                                     
+                                            .%&#///////((#%&&&&&&&%#(####((#((((####%%%%%%%######(                                                    
+                                            /((#####%%%%(///((//****,,,*///((((((##################.                                                  
+                                           .#%%%%%%####(/*******,,,,...,,**///((((##################,                                                 
+                                         /#%%%%%##((((///***,,,,,......,,****//(((((((((((((((((((####/                                               
+                                      .#%&&&&%%#((/////(////****,,,,,,,,,,,****///(((((((##((((#########(*                                            
+                                     ,%&&&&&@&&#((((/(/(((##(((******,,,******////((((###############(##((#(/.                                        
+                                      (@&&@&&%#(/((/((###%&&%#///*,,,,,,*,***////((((####(##################(((/.                                     
+                                        ./&&%%%%%#####%&%#(((//**,,,,,,,****////((((((#############(((((((((((((((*                                   
+                                                ./((((((((//***,,,,,,,,***//////(((################(((((((((((((((((*                                 
+                                                 .//////******,,,,,,*****////(((#########%%######((((((((((((((#%%#(((*                               
+                                                 .********,***********////(((###################(((((((((((((##%%%%%###(.                             
+                                                 .*******************////((((##########((((((((((((((((((((#%%%%###%%%###.                            
+                                                 ,*,*********,,******//////(((((((((((((//(///////(((((((#%%%######%%%##(#                            
+                                                 .,,******,,,,,,,,******//////////////////////////((((#%%%%######%%%%####(/                           
+                                                 .,,,*******,,,,,,,,,*****//*************////////((############%%%%#####((#/                          
+                                                 .,,*,******,,,,,,,,,*********************////((((((#########%%%%%#####(((##*                         
+                                                 .,,**,,,**,,,,,,,,,,,,,,,**********//////////(((((((((######%&%######(#####%/                        
+                                                 ,,,*,,,,******,,,,,,,,,*******/****/////////**////((#######%%%%##########%%%&(                       
+                                                 ,*****,,,,,,,*,,,,,,,,,,**********************///((#######%%%%#########%%%%%%%#                      
+                                                 ,,,,,,,,,,,,,,,,,,,***********,****************/(########%%%%##########%%%%%%%%/                     
+                           . ..           .......     ........,,,*/*,,,,,,,********,,,,*******/((#########%############%%%%%%%##(                     
+                                                       ...*///(/*/(/,,,,,,******************/((((######################%%%%%#####.                    
+                          ,,,,,,,,,,,,,,,,,,,,,,,.........,..,....,***********************//(((########################%%%%#####%/                    
+                          ,*,,,,,,,,,,,,,,,,,,,,,......,,,,..,....,*******************/////(((########%%#################%%######.                    
+                          *///*******************,,,,,*******************/***/***//////((((###########%%%#######################/                     
+                    ..,,,,,//////****************,,,,,************/*************/////(((((#((#########%%%###########%%##%%%%%%%%,                     
+                 ,,,,,,,*((((//////**************,,,,,************///////*******////(((((##(#######%%%%%##########%%%%#########/                      
+                .,,,,******/((////***************,,,,,,,******,***//////////////**////(((((#######%%%%%%%###%%%%%%%%##########.                       
+                 .,*****,,**/((//****************,,,,,,,,,,,,,****###(((/(((//((//*///((((#(#####%%%&%%%%%%%%%%%%%%%########,                         
+                   .,***,,**/##(/**************,**********,,,,*//(%%%#(//((//(((((/*//((((((((###%%%&&&&%%%%%%%%%%##%%%%%%(.                          
+               ..,**/(##(/(#%%##(//**/////////******/******,,*//(/##%%%#(/(///(/((/**//(((((((#####%&&&&%%%%%%%%%%%%%%%%(.                            
+               ,**,,,,,,****//#%(((///////////*************,,****,,(%%%%##((((/(((/*/////(((((####%%&&&&&%%%%%%%%#%%##,                               
+               ,*,,,,**********,*/(/*////////*************,,,***(///**(////////////*////(((((#####%&&&&&%%%%%%%%%%%,                                  
+                 ,,,,*******,*****((*////////*************,,,***(//***///////********///(((########%%%&&&&%%%%&#,                                     
+            ./####%%%%(/******,**/((/////////****,********,,**/((**////*************////(((#######%&&&&&&&&%*.                        ,////*.         
+       ,%@@@@&##((#%&@@@@&#(##((#%#((////////****,@@@@@@@@@#,*//(/****************/////(((###%##%%&&&&&#,                        (@@@@@&%%%@@@@@#     
+     %@@@/              (@@@(*,***(#((///////*****@@@,  .@@%**/(*******,******///(////((((######%%%*                          .@@@%           .&@@(   
+   (@@@    *@@@@@@@@@@.   ,@@@(///(#((////////****@@@*.,,@@%*//(../#%#/,.....,*(##/*//((#%####%*  .,(((,             ,/(/,.   (@@@( ,@@@@@@@%   (@@/  
+  (@@/   #@@&*      *@@@*  .#@@@@@@@@@@&///@@@@@@@@@@@@@@@@#*&@@@@@%%%&@@@@& %@@@@@@@@@@@@@@@@&@@@@@&%%@@@@@(.  (@@@@@&%%@@@@@@#.%@@@@,  *@@@.  *@@(  
+ *@@#   /@@*          #@@.  .@@@@&   @@&///@@%   #@@@*  ,@@@@@(.          #@@@@@,  /*     (@@@@(          .&@@&@@%.          .@@@# ,  /@@@&,   *@@@   
+ (@@,   @@&.       /( *@@#   #@@@&   @@&///@@%   %@@@*  ,@@@&.  (@@@@@@@(   @@@@,   .#@@@@@@@%   #@@@@@@@*  ,@@@&   %@@@@@@@&@@%    ,@@@,   .%@@@/    
+ /@@(   #@@,    *@@@@@&@@*   %@@@&   @@&///@@%   %@@@*  ,@@@.  (%%%&%%%%%,  *@@@,  .@@&((#@@@   %%%%&%%&%&.  #@@@*    *#&@@@@@#    .@@#   #@@@(       
+  @@@,   %@@/*@@@&. ,@@@#   /@@@@&   @@&*//@@#   %@@@,  ,@@@   .,...........*@@@,  *@@%((#@@@   ..........   *@@@@@@(.      .#@@#  *@@/  .@@(         
+   %@@*   ,&@@@@@@@,  ..   (@@&@@&   %@@&&@@@.   %@@@,  ,@@@(   &@@@@@@@@@@@@@@@,  *@@%(##@@@/  .@@@@@@@@@@@@@@@@@@@@@@@@@%   /@@, &@@@@@@@@@         
+    *@@@(     .*//*.     %@@&(/%@@(   ./((*.     %@@@,  ,@@@@&    *(%%#(,   %@@@,  *@@#((##&@@(   .*%&&%(,  .&@@%. .(%@@&#,   %@@  &@@.   %@@         
+      .&@@@&/,.    .*(&,  ,&@@%*(@@@%/,...*#@&***%@@@/**(@@/%@@@#*.    .*(&@@@@@/,,(@@#((##,.%@@@(,      ,(@@@@@@&/,.     ./&@@@.  &@@,...%@@         
+          ,#&@@@@@@@@&@@@,(@@@%.   *%@@@@@@&&&&&&&&&&&&&&&@*   /%@@@@@@@@&(. %@@@@@@@@#(##(    .#&@@@@@@@@&(.   ,#&@@@@@@@@@%*     &@@@@@@@@@         
+                       ,@@@&.                                                ///**//////((.                                                           
+                         ,                                                   .(#%%////,                                                               

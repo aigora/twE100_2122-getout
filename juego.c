@@ -80,7 +80,7 @@ int juego(FILE *map, char dificultad, int *movimientos) {
     //[numero de laberinto][fila del laberinto][columna del laberinto]
     char mapas[30][200][200];
     int quit = 0;
-
+    FILE *ultimos_pasos;
     //Donde se guarda el numero de pasos realizados por movimiento eficiente en una partida.
     int num_paso=0; 
 
@@ -192,6 +192,9 @@ int juego(FILE *map, char dificultad, int *movimientos) {
         }
     } while (mapas[mapa_jugable][exit.x][exit.y] == 'M');
     *movimientos=num_paso;
+    ultimos_pasos=fopen("ultima_partida.txt", "w");
+    fprintf(ultimos_pasos, "%i", num_paso);
+    fclose(ultimos_pasos);
     system("cls");
     return 0;
 }
@@ -521,8 +524,9 @@ dosDatos analizar_posicion_salida(char mapas[][200][200], dosDatos medidas[], in
 //Para seleccionar un mapa, solo tienes que tener el que quieras en la pantalla y seleccionar enter.
 int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_mapas)
 {
+    FILE *bonk;
     int i, j, bucle=1;
-    char seleccion, mapa_mostrado=1;
+    char seleccion, mapa_mostrado=1, xd;
     do
     {
         system("cls");
@@ -574,6 +578,18 @@ int imprimir_mapa_entero(char mapas[][200][200], dosDatos medidas[], int numero_
             {
                 mapa_mostrado=mapa_mostrado-1;
             }
+        }
+        if (seleccion=='c'||seleccion=='C')
+        {
+            system("cls");
+            bonk=fopen("Cheems.txt", "r");
+            while (!feof (bonk)) {
+            xd = getc(bonk);
+            printf ("%c", xd);
+            }
+            printf("\n\t\t\t\t\t\tNo premsiome lam C, meh dam amciedath\n\t\t\t\t\t\t");
+            system("pause");
+            system("cls");
         }
         if (seleccion==13)
         {
@@ -627,21 +643,24 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
 void guardar_numero_pasos(int *num_pasos)
 {
     //Se crea archivo txt.
-    FILE *pf;
+    FILE *pf, *ultimos_pasos;
     char nombre[20], apellidos[20];
     system("cls");
-    printf("Escribe tu nombre\n");
+    printf("######################################\n\n");
+    printf("\tEscribe tu nombre\n\n######################################\n\t");
     scanf("%s", nombre);
-    printf("Escribe tu apellido(solo 1)\n");
+    system("cls");
+    printf("#################################################\n\n");
+    printf("\tEscribe tu apellido(solo 1)\n\n#################################################\n\t");
     scanf("%s", apellidos);
-    pf = fopen("numero_total_paso.txt", "a");
+    pf = fopen("historial.txt", "a");
     //Comprobacion por si hay error al abrir archivo.
     if (pf == NULL){
         printf("Error al abrir el fichero.\n");
         return -1;
     }
     else{
-        fprintf(pf, "%s %s\nNumero de movimientos realizados:%i\n",nombre, apellidos, *num_pasos);
+        fprintf(pf, "%s %s\nNumero de movimientos realizados en ultima partida registrada:%i\n",nombre, apellidos, *num_pasos);
         //Nunca se olvida cerrar el archivo.
         fclose (pf);
     }

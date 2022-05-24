@@ -204,3 +204,24 @@ Laberintos:
 #ooo#ooo#ooo#o#o##o####o#
 #o#ooo#ooo#ooo#oooo#oooo#
 #########################
+20 20
+####################
+#oooooooooooooooo###
+#o######o#####o###M#
+#oooooo#oo#o#oooo#o#
+#o#o#####o#o#o####o#
+#o#oooo#oo#o#oooo#o#
+#o######o##o###o##o#
+#o#ooo#ooo#oooooooo#
+#o#o#ooo#o###o####o#
+#o#########oooo#ooo#
+#o#ooo#ooo#oo#o#o#o#
+#ooo#o#o#o####o#o###
+#####o#o#oooooooo#o#
+#ooo#o#o##########o#
+#o#ooo#oo#ooooo#ooo#
+#o#o####o#o#o#ooo#o#
+#o#oooooooo#########
+#o#######o##o#ooo#o#
+#o#oooooooooooo#ooo#
+####################

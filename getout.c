@@ -9,7 +9,7 @@ void getout()
     pantallaInicio();
     getch(); //loophole no preguntes
     FILE *historial;
-    int input, exito = 1, num_paso = 0, i;
+    int input, exito = 1, num_paso = 0;
     int *movimientos = &num_paso;
     char character, resultado;
     //infinite_loop:
@@ -57,7 +57,7 @@ void getout()
         resultadosLB:
         {
         system("cls");
-        historial=fopen("numero_total_paso.txt", "r");
+        historial=fopen("historial.txt", "r");
         if (historial==NULL)
         {
             printf("No se pudo abrir el fichero\n");
@@ -65,10 +65,17 @@ void getout()
         }
         else
         {
+            printf("#####################################################################################\n\n\t");
             while (!feof (historial)) {
-            resultado = getc (historial);
+            resultado = getc(historial);
             printf ("%c", resultado);
+            if (resultado=='\n')
+            {
+                printf("\n\t");
             }
+            }
+            printf("\n");
+            printf("#####################################################################################\n");
         }
         fclose(historial);
         system("pause");

@@ -111,17 +111,16 @@ void instruccionesMovimiento() {
 }
 
 int numero_pasos_guardado() {   
-    int num_pasos=0;
+    int num_pasos=0, i;
     FILE *pf;
-    pf = fopen("numero_total_paso.txt", "r");
+    pf = fopen("ultima_partida.txt", "r");
     //Comprobacion por si hay error al abrir archivo.
     if (pf == NULL){
         printf("Error al abrir el fichero.\n");
         return -1;
     }
     else{
-        fscanf(pf, "%i", &num_pasos);    
-        //Nunca se olvida cerrar el archivo.
+        fscanf(pf, "%i", &num_pasos);
         fclose (pf);
         return num_pasos;
     }
