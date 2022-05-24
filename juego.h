@@ -50,3 +50,6 @@ char salida();
 
 //Laberinto creado
 void editor();
+
+//Abre fichero y almacena pasos utilizados en un archivo txt.
+void guardar_numero_pasos(int num_pasos);

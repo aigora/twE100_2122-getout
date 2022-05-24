@@ -3,6 +3,7 @@
 #include "pantallas.h"
 #include <stdio.h>
 #include <conio.h>
+#include <time.h>
 
 void pantallaInicio() {
     printf("                         #######\n");
@@ -43,51 +44,13 @@ void pantallaDificultad() {
 
 void pantallaFinal() {
     int n = numero_pasos_guardado();
-    printf("##########################################################\n\n");
-    printf("     Ha realizado %i pasos en la ultima partida\n", n);
-    printf("     Gracias por jugar, pulse cualquier\n");
-    printf("     tecla para salir...\n\n");
-    printf("     Get Out!\n\n");
-    printf("##########################################################\n\n");
-    printf("       %%    ,%%%%(,           *%%#   %%%%%%%%#((((((%%(((((((((%%%%%%%%%%%%(%%%%(((((%%%%,     %%%%*       %%%%      %%    \n");
-    printf("      &*         %%&#,%%%%         %%#&,  (&&%%%%&%%%%#&%%%%%%%%&%%#(((#((((%%%%((#(%%,           .&%%%%*        &    \n");
-    printf("     .%%       %%.        &#        &%%  ((((((#%%((((((((((((((((((%%%%(#%%  &*              #%%     &     \n");
-    printf("     &#         /%%%%       *        .%%  ((((((%%%%(#((((((((((((((((&&%%      /                %%#%%      \n");
-    printf("     %%.        &                      #%%&%%(#(%%%%(#((((((((#((#%%%%%%%%            /                %%&    \n");
-    printf("     &      *&(/(%%%%                        .%%%%%%%%####%%%%%%&%%#                                       &/ \n");
-    printf("     &         ,,                          &                                                       *\n");
-    printf("     &*      (,                             %%(.                       .                             \n");
-    printf("     .&    .%%                            %%   & ,#                       #          /                \n");
-    printf("      &,  %%                         #    %%&  /*  (/       #               /*        %% %%%%            \n");
-    printf("       & %%                          ,    %% (  &    &       #               #*      .%%#              \n");
-    printf("        %%                          &     & &  &     .&     *               & #   %%,   %%   .         \n");
-    printf("       %%                        ,,*,     & %%  &.      %%     &              && &%%      &%%   .        \n");
-    printf("       %%                          %% .%%  // &  %%        %%    &,             %%%%%%&       # %%  &        \n");
-    printf("      &                          &      &%% & ,(         %%   &%%            & * &*     %%   # &        \n");
-    printf("      &                        .&      &  / %%%%           & *.,*        # &   %%%%%%%%%%&%%,    & *        \n");
-    printf("     #.              %%        %%(     %%/   */   /&        &.#  & &#   ..%%( %%%%%%      *%%%%%%%% ,&         \n");
-    printf("     %%              %%        %%     &%% /%%&%%%%&%%%%%%%%%%        %%              %%&   &####%%#   *%%%%,&        \n");
-    printf("     %%             &       %%#  .%%%% %%%%%%&     .,.                            %%  .%%###%%#&    &&        \n");
-    printf("     &            %%.     &&%%%%    %%&%%    &#########%%                       &#(###%%#####%%    &%%       \n");
-    printf("     &           %%    ,&   &   %%&%%    %%   ##########%%                     %%############,    &*      \n");
-    printf("     #         *%%  #%%,    #   %%&%%    .%%##############(                    &############.     &      \n");
-    printf("    ./        %%%%&/        &   %%%%     *###############&                     %%#########%%&       %%     \n");
-    printf("    #                    .  /%%%%%%      ###############(                       %%######%%          *%%   \n");
-    printf("    %%                    .     %%       #############%%                 #               ...../.    .%% \n");
-    printf("    &                           (%%       ,&%%%%%%#%%%%(                                 .%%..#..*.%%../   &\n");
-    printf("   #.                            #%%     ....,. .                                   #..%%....#..*     \n");
-    printf("  ,%%                              &  *...../..../                 /%%&%%#/,   ./&&(&   (....*..      .\n");
-    printf(" *(                               &/..#..(..%%../.   .%%&/%%%%&&#/*//////(((((((((%%((%%                 %%\n");
-    printf("#*                                %%    ./.....      %%///////////////////////(((((%%                & \n");
-    printf("/                                 &                .%%/*/////////////////////////%%.               %%  \n");
-    printf("                                  &                .%%///////////////*//////////%%(              %%    \n");
-    printf("                                  ,&                &///////////////////*/////%%.            %%&      \n");
-    printf("                              .(    *&%%&&*&          %%//////////////////////%%%%           &&         \n");
-    printf("                       &          %%&%%#%%%%%%             %%%%//////////////////%%.        *%%&             \n");
-    printf("                        &     #    .&&. #&.              #&%%(//////(%%&%%.      (&&(                %%%%\n");
-    printf("  #                       %%        .    %%/     (%%%%,                ./&%%/,&(                      %%  \n");
-    printf("(  ,  &                      (&&&&&%%#  %%%%%%%%%%*     ./%%         .&     &.   %%%%&%%                 .%%   \n");
-    printf("    /.  #,         ,              *(%%       &     %%            &       /(    .%%&,           ##      \n");
+    printf("\t\t##########################################################\n\n");
+    printf("\t\t     Ha realizado %i pasos en la ultima partida\n", n);
+    printf("\t\t     Gracias por jugar, pulse cualquier\n");
+    printf("\t\t     tecla para salir...\n\n");
+    printf("\t\t     Get Out!\n\n");
+    printf("\t\t##########################################################\n\n");
+    boceto_randon();
     getch();
 }
 
@@ -162,4 +125,40 @@ int numero_pasos_guardado() {
         fclose (pf);
         return num_pasos;
     }
+}
+
+void boceto_randon() {
+    int n_aleatorio;
+    char simbolo;
+
+    srand(time(NULL));
+    //Numero aleatorio entre 1 y 100
+    n_aleatorio = (rand() % 3 + 1);
+
+    FILE *pf;
+    switch (n_aleatorio) {
+    case 1:
+        pf = fopen("bocetos\\boceto_1.txt", "r");
+            while (fscanf(pf, "%c", &simbolo) != EOF) {
+                printf("%c",simbolo);
+            }
+        break;
+    case 2:
+        pf = fopen("bocetos\\boceto_2.txt", "r");
+            while (fscanf(pf, "%c", &simbolo) != EOF) {
+                printf("%c",simbolo);
+            }
+        break;
+    case 3:
+        pf = fopen("bocetos\\boceto_3.txt", "r");
+            while (fscanf(pf, "%c", &simbolo) != EOF) {
+                printf("%c",simbolo);
+            }
+        break;
+    default:
+        printf(" Gracias por jugar nuestro juego.");
+        break;
+    }
+    fclose(pf);
+
 }

@@ -33,3 +33,5 @@ void PantallaSeleccionPosicionEditor();
 
 //Contiene las instrucciones de movimiento
 void instruccionesMovimiento();
+
+void boceto_randon();
