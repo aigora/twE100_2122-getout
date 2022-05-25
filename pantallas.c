@@ -18,15 +18,14 @@ void pantallaInicio() {
     printf("              #############################\n");
     printf("                         #######\n\n");
     printf("Para una mejor experiencia se recomienda\njugar en pantalla completa zoom reducido.\n\n");
-    printf("Pulse cualquier tecla para iniciar...\n");
 }
 
 void pantallaSeleccion() {
     printf("##########################################################\n\n");
     printf("     1  Jugar\n\n");
     printf("     2  Historial\n\n");
-    printf("     3  Editor de niveles\n\n");
-    printf("     4  Salir\n\n\n\n");
+    printf("     3  Editor de niveles\n\n\n\n");
+    printf("     5  Salir\n\n");
     printf("##########################################################\n\n");
     printf("Pulse el numero de la opcion...\n");
 }
@@ -76,7 +75,7 @@ void seccionInstrucciones() {
     printf("    T - Colocar pared      E - Colocar espacio\n");
     printf("    R - Colocar meta       G - Guardar\n");
     printf("    Presiona enter para crear paredes enteras, vuelve a presionarlo para crearlas\n\n");
-    printf("    X - Salir del editor\n");
+    printf("    X - Salir del editor\n\n");
 }
 
 void PantallaSeleccionPosicion(char dificultad) {
@@ -126,6 +125,7 @@ int numero_pasos_guardado() {
     }
 }
 
+//e_e
 void boceto_randon() {
     int n_aleatorio;
     char simbolo;
@@ -137,18 +137,21 @@ void boceto_randon() {
     FILE *pf;
     switch (n_aleatorio) {
     case 1:
+    //Yu
         pf = fopen("bocetos\\boceto_1.txt", "r");
             while (fscanf(pf, "%c", &simbolo) != EOF) {
                 printf("%c",simbolo);
             }
         break;
     case 2:
+    //Yuan
         pf = fopen("bocetos\\boceto_2.txt", "r");
             while (fscanf(pf, "%c", &simbolo) != EOF) {
                 printf("%c",simbolo);
             }
         break;
     case 3:
+    //Alejandro
         pf = fopen("bocetos\\boceto_3.txt", "r");
             while (fscanf(pf, "%c", &simbolo) != EOF) {
                 printf("%c",simbolo);
@@ -158,5 +161,10 @@ void boceto_randon() {
         printf(" Gracias por jugar nuestro juego.");
         break;
     }
+
     fclose(pf);
 } 
+
+void instruccionesTeclas() {
+    printf("    R - Mostrar pistas\n    X - Salir del laberinto\n\n");
+}

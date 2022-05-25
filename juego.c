@@ -420,6 +420,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
             PantallaSeleccionPosicionEditor();
             printf("%ix%i\n", medidas[mapa_jugable].x, medidas[mapa_jugable].y);
             instruccionesMovimiento();
+            instruccionesTeclas();
             printf("   Introduzca la posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
             //el while esta para que funcine cunado 
@@ -441,6 +442,7 @@ void decidir_posicion(char mapas[][200][200],dosDatos medidas[], int mapa_jugabl
         {
             PantallaSeleccionPosicion(dificultad);
             instruccionesMovimiento();
+            instruccionesTeclas();
             printf("    Introduzca la posicion en la que quieres aparecer: ");
             scanf("%i %i", &jugador.x, &jugador.y);
             //el while esta para que funcine cunado 
@@ -605,36 +607,35 @@ void Pista_meta(char mapas[][200][200], dosDatos medidas[], int mapa_jugable)
     dosDatos salida, jugador;
     jugador=analizar_posicion_jugador(mapas, medidas, mapa_jugable);
     salida=analizar_posicion_salida(mapas, medidas, mapa_jugable);
-    printf("Pista:\n");
+    printf("    Pista:\n\n");
     if (jugador.y==salida.y)
     {
-        printf("-alineado con la meta en el eje x\n");
+        printf("    -Alineado horizontalmente\n");
     }
     else
     {
         if (jugador.y>salida.y)
         {
-            printf("-izquierda\n");
+            printf("    -Izquierda\n");
         }
         if (jugador.y<salida.y)
         {
-            printf("-derecha\n");
+            printf("    -Derecha\n");
         }    
     }
-    printf("\n");
     if (jugador.x==salida.x)
     {
-        printf("-alineado con la meta en el eje y\n");
+        printf("    -Alineado verticalmente\n\n");
     }
     else
     {
         if (jugador.x>salida.x)
         {
-            printf("-arriba\n");
+            printf("    -Arriba\n\n");
         }
         if (jugador.x<salida.x)
         {
-            printf("-abajo\n");
+            printf("    -Abajo\n\n");
         }        
     }
 }
@@ -657,7 +658,7 @@ void guardar_numero_pasos(int *num_pasos)
     //Comprobacion por si hay error al abrir archivo.
     if (pf == NULL){
         printf("Error al abrir el fichero.\n");
-        return -1;
+        return;
     }
     else{
         fprintf(pf, "%s %s\nNumero de movimientos realizados en ultima partida registrada:%i\n",nombre, apellidos, *num_pasos);

@@ -29,6 +29,8 @@ void editor()
         if ((medidas.x>=4&&medidas.x<=50)) {
             if (medidas.y>=4&&medidas.y<=50) {
                 k = 1;
+            } else {
+                printf("No ha introducido unas coordenadas dentro del rango\nVuelva a intentarlo.");
             }
         } else {
             printf("No ha introducido unas coordenadas dentro del rango\nVuelva a intentarlo.");
@@ -229,7 +231,7 @@ dosDatos editar_lab(char mapa[50][50], dosDatos medidas, dosDatos posicion, char
             }
             if (nueva_entrada==13)
             {
-                printf("    Guardar cambios:\n    Si(s)\n    No(n)");
+                printf("    Guardar cambios:\n    S - Si\n    N - No");
                 guardar=getch();
                 if (guardar=='s'||guardar=='S')
                 {

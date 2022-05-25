@@ -11,7 +11,7 @@ void getout()
 {
     system("cls");
     pantallaInicio();
-    getch(); //loophole no preguntes
+    system("pause");
     int input, exito = 1, num_paso = 0;
     int *movimientos = &num_paso;
     char character;
@@ -43,7 +43,7 @@ void getout()
                 goto seleccionSeleccion;
                 break;
 
-            case '4':
+            case '5':
                 //Sales del programa
                 system("cls");
                 pantallaFinal();
