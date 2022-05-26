@@ -6,5 +6,5 @@ OBJ = main.o getout.o pantallas.o editor.o historial.o juego.o
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
 
-prueba: $(OBJ)
+GetOut: $(OBJ)
 	$(CC) -o $@ $^ $(CFLAGS)
